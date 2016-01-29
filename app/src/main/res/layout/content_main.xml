@@ -67,4 +67,29 @@
         android:layout_centerHorizontal="true"
         android:onClick="onClickDosyaGonder" />
 
+    <com.dd.CircularProgressButton
+        android:id="@+id/btnWithText"
+        android:layout_width="196dp"
+        android:layout_height="64dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:cpb_textComplete="@string/Complete"
+        app:cpb_textError="@string/Error"
+        app:cpb_textIdle="@string/Upload"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/kaydetbut"
+        android:layout_alignStart="@+id/kaydetbut" />
+
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"
+        android:color="@color/cpb_blue_dark"/>
+    <item android:state_focused="true"
+        android:color="@color/cpb_blue_dark"/>
+    <item android:state_enabled="false"
+        android:color="@color/cpb_grey"/>
+    <item android:state_enabled="true"
+        android:color="@color/cpb_blue"/>
+    </selector>
+
 </RelativeLayout>
