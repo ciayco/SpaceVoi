@@ -25,8 +25,8 @@ import java.io.IOException;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
+    //1:00 DEĞİŞİKLİK
     //yorum satırı hell yeah
-    //sa world
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.laforizma.com/upload.php";
     String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/uzay.amr";
