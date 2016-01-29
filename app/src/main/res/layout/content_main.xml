@@ -18,6 +18,7 @@
         android:text="Hello World!"
         android:id="@+id/textView" />
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,10 +53,10 @@
         android:layout_height="wrap_content"
         android:text="Kayıt Durdur"
         android:id="@+id/kaydurbut"
-        android:layout_alignBottom="@+id/kaydetbut"
+        android:onClick="stopRecording"
+        android:layout_above="@+id/calbut"
         android:layout_toRightOf="@+id/kaydetbut"
-        android:layout_toEndOf="@+id/kaydetbut"
-        android:onClick="stopRecording" />
+        android:layout_toEndOf="@+id/kaydetbut" />
 
     <Button
         android:layout_width="wrap_content"
@@ -65,4 +66,5 @@
         android:layout_above="@+id/kaydetbut"
         android:layout_centerHorizontal="true"
         android:onClick="onClickDosyaGonder" />
+
 </RelativeLayout>

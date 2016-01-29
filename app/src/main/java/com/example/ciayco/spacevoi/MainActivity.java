@@ -25,7 +25,7 @@ import java.io.IOException;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
-    //1:00 DEĞİŞİKLİK2x
+    //mesaj alındı moruk
     //yorum satırı hell yeah
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.laforizma.com/upload.php";
