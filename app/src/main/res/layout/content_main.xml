@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.ciayco.spacevoi.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kaydet"
+        android:id="@+id/kaydetbut"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:onClick="startRecording" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Çal Keke"
+        android:id="@+id/calbut"
+        android:layout_below="@+id/kaydetbut"
+        android:layout_centerHorizontal="true"
+        android:onClick="startPlaying" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Durdur Keke"
+        android:id="@+id/durbut"
+        android:layout_below="@+id/calbut"
+        android:layout_centerHorizontal="true"
+        android:nestedScrollingEnabled="false"
+        android:onClick="stopPlaying" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kayıt Durdur"
+        android:id="@+id/kaydurbut"
+        android:layout_alignBottom="@+id/kaydetbut"
+        android:layout_toRightOf="@+id/kaydetbut"
+        android:layout_toEndOf="@+id/kaydetbut"
+        android:onClick="stopRecording" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yolla Panpa"
+        android:id="@+id/button"
+        android:layout_above="@+id/kaydetbut"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickDosyaGonder" />
+</RelativeLayout>
