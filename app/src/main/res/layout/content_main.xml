@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.ciayco.spacevoi.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="#3a424a">
 
 
     <Button
@@ -20,12 +21,13 @@
         android:id="@+id/kaydetbut"
         android:layout_centerVertical="true"
         android:onClick="startRecording"
-        android:layout_marginLeft="40dp" />
+        android:layout_marginLeft="40dp"
+        android:layout_toStartOf="@+id/button" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Çal Keke"
+        android:text="Kaydı Çal"
         android:id="@+id/calbut"
         android:layout_below="@+id/kaydetbut"
         android:layout_centerHorizontal="true"
@@ -34,7 +36,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Durdur Keke"
+        android:text="Çalmayı Durdur"
         android:id="@+id/durbut"
         android:layout_below="@+id/calbut"
         android:layout_centerHorizontal="true"
@@ -55,7 +57,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yolla Panpa"
+        android:text="Gönder"
         android:id="@+id/button"
         android:layout_above="@+id/kaydetbut"
         android:layout_centerHorizontal="true"
@@ -78,12 +80,9 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#0a141e"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/frameLayout">
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:layout_width="187dp"
@@ -102,15 +101,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:textColor="#fe9900" />
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner"
-            android:textColor="#fe9900"
-            android:layout_gravity="left|center_vertical"
-            android:clickable="true"
-            android:contextClickable="true" />
 
     </FrameLayout>
 
