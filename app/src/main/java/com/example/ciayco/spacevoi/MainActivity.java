@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -28,10 +29,19 @@ import com.loopj.android.http.RequestParams;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
     //mesaj alındı moruk
+    HashMap<String, List<String>> Movies_category;
+    List<String> Movies_list;
+    ExpandableListView Exp_list;
+    MoviesAdapter adapter;
+
     //ignore test emre 20.58
     //yorum satırı hell yeah
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
@@ -142,6 +152,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
+
+        Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
+        Movies_category = DataProvider.getInfo();
+        Movies_list = new ArrayList<String>(Movies_category.keySet());
+        adapter = new MoviesAdapter(this, Movies_category, Movies_list);
+        Exp_list.setAdapter(adapter);
+
 ////sonradan eklenen
         pDialog = new ProgressDialog(this);
         pDialog.setIndeterminate(false);
