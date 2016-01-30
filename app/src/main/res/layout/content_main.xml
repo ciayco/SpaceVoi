@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,12 +12,6 @@
     tools:context="com.example.ciayco.spacevoi.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
-
 
     <Button
         android:layout_width="wrap_content"
@@ -25,9 +19,8 @@
         android:text="Kaydet"
         android:id="@+id/kaydetbut"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:onClick="startRecording" />
+        android:onClick="startRecording"
+        android:layout_marginLeft="40dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,7 +49,8 @@
         android:onClick="stopRecording"
         android:layout_above="@+id/calbut"
         android:layout_toRightOf="@+id/kaydetbut"
-        android:layout_toEndOf="@+id/kaydetbut" />
+        android:layout_toEndOf="@+id/kaydetbut"
+        android:layout_marginLeft="40dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -73,23 +67,51 @@
         android:layout_height="64dp"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:cpb_textComplete="@string/Complete"
-        app:cpb_textError="@string/Error"
-        app:cpb_textIdle="@string/Upload"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/kaydetbut"
-        android:layout_alignStart="@+id/kaydetbut" />
+        app:cpb_textComplete="Complete"
+        app:cpb_textError="/Error"
+        app:cpb_textIdle="Upload"
+        android:layout_below="@+id/durbut"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 
-    <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true"
-        android:color="@color/cpb_blue_dark"/>
-    <item android:state_focused="true"
-        android:color="@color/cpb_blue_dark"/>
-    <item android:state_enabled="false"
-        android:color="@color/cpb_grey"/>
-    <item android:state_enabled="true"
-        android:color="@color/cpb_blue"/>
-    </selector>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#0a141e"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="SpaceVoi"
+            android:id="@+id/textView"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:visibility="visible"
+            android:textSize="30dp"
+            android:singleLine="false"
+            android:letterSpacing="1.2"
+            android:layout_gravity="right|center_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#fe9900" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:textColor="#fe9900"
+            android:layout_gravity="left|center_vertical"
+            android:clickable="true"
+            android:contextClickable="true" />
+
+    </FrameLayout>
 
 </RelativeLayout>
