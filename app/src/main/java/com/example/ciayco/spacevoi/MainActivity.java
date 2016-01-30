@@ -25,109 +25,15 @@ import java.io.IOException;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
-    //mesaj alındı moruk
-    //yorum satırı hell yeah
-    // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
-    String uploadAdresi = "http://www.laforizma.com/upload.php";
-    String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/uzay.amr";
-    // upload download işlemlerinin % olarak göstermek için kullanılacak progress dialog
-    ProgressDialog pDialog;
-    // get ve post işlemleri yapacağımız AsyncHttpClient nesnesi
-    final AsyncHttpClient client = new AsyncHttpClient();
-    // dosya gönderirken dosyayı iliştireceğimiz nesne.
-    final RequestParams params = new RequestParams();
 
-    public void mesajGoster(String mesaj) {
-        Toast.makeText(getApplicationContext(), mesaj, Toast.LENGTH_LONG)
-                .show();
-    }
-    public void onClickDosyaGonder(View v) {
-        File file = new File(dosyaKayitYeri);
-        try {
-            params.put("dosya", file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    Upload us = new Upload();
 
-        pDialog.setMessage("Dosya gönderiliyor. Lütfen bekleyin...");
-        pDialog.show();
-
-        client.post(uploadAdresi, params, new AsyncHttpResponseHandler() {
-
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-                mesajGoster("Dosya sunucuya gönderildi!");
-            }
-
-            @Override
-            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                mesajGoster("Dosya sunucuya gönderilemedi!");
-            }
-
-
-            @Override
-            public void onProgress(long bytesWritten, long totalSize) {
-                super.onProgress(bytesWritten, totalSize);
-                long progress = (bytesWritten * 100) / totalSize;
-
-                pDialog.setProgress((int)progress);
-
-                if (progress == 100)
-                    pDialog.dismiss();
-            }
-        });
+    public void upload(){
+    us.DosyaGonder(getApplicationContext());
     }
 
-    /////--------------------SES KAYIT BLOGU
-    public static final String LOG_TAG = "AudioRecordTest";
-    public static String mFileName = null;
-    public MediaRecorder mRecorder = null;
-    public MediaPlayer mPlayer = null;
 
 
-    public void startPlaying(View v) {
-        mPlayer = new MediaPlayer();
-        try {
-            mPlayer.setDataSource(mFileName);
-            mPlayer.prepare();
-            mPlayer.start();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "prepare() failed");
-        }
-    }
-
-    public void stopPlaying(View v) {
-        mPlayer.release();
-        mPlayer = null;
-    }
-
-    public void startRecording(View v) {
-        mRecorder = new MediaRecorder();
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
-        mRecorder.setOutputFile(mFileName);
-        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-
-        try {
-            mRecorder.prepare();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "prepare() failed");
-        }
-
-        mRecorder.start();
-    }
-    public void stopRecording(View v) {
-        mRecorder.stop();
-        mRecorder.release();
-        mRecorder = null;
-    }
-    public MainActivity() {
-        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/uzay.amr";
-    }
-
-/////--------------------SES KAYIT BLOGU
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,13 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-////sonradan eklenen
-        pDialog = new ProgressDialog(this);
-        pDialog.setIndeterminate(false);
-        pDialog.setMax(100);
-        pDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pDialog.setCancelable(true);
-////
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
