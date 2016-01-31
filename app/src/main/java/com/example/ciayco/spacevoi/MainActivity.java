@@ -18,12 +18,12 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
 
-    //emre ekleme
+    //emre ekleme 1
     HashMap<String, List<String>> Movies_category;
     List<String> Movies_list;
     ExpandableListView Exp_list;
     MoviesAdapter adapter;
-    //emre ekleme son
+    //emre ekleme 1 son
 
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
