@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:text="Kaydet"
         android:id="@+id/kaydetbut"
-        android:onClick="startRecording"
         android:layout_above="@+id/calbut"
         android:layout_toLeftOf="@+id/kaydurbut"
         android:layout_toStartOf="@+id/kaydurbut" />
@@ -29,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Kaydı Çal"
         android:id="@+id/calbut"
-        android:onClick="startPlaying"
+        android:onClick="cal"
         android:layout_above="@+id/btnWithText"
         android:layout_alignLeft="@+id/btnWithText"
         android:layout_alignStart="@+id/btnWithText"
@@ -40,17 +39,18 @@
         android:layout_height="wrap_content"
         android:text="Çalmayı Durdur"
         android:id="@+id/durbut"
-        android:layout_below="@+id/calbut"
-        android:layout_centerHorizontal="true"
         android:nestedScrollingEnabled="false"
-        android:onClick="stopPlaying" />
+        android:layout_alignBottom="@+id/calbut"
+        android:layout_toLeftOf="@+id/calbut"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kayıt Durdur"
         android:id="@+id/kaydurbut"
-        android:onClick="stopRecording"
+        android:onClick="durdur"
         android:layout_alignTop="@+id/calbut"
         android:layout_toRightOf="@+id/calbut"
         android:layout_toEndOf="@+id/calbut" />
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text="Gönder"
         android:id="@+id/button"
-        android:onClick="onClickDosyaGonder"
+        android:onClick="upload"
         android:layout_above="@+id/kaydurbut"
         android:layout_alignRight="@+id/btnWithText"
         android:layout_alignEnd="@+id/btnWithText" />
@@ -120,26 +120,17 @@
         android:longClickable="false"
         android:clickable="true" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ExpandableListView
+        android:layout_width="100dp"
+        android:layout_height="250dp"
+        android:id="@+id/exp_list"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:divider="#fe9900"
+        android:dividerHeight="0.5dp"
         android:layout_below="@+id/frameLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/kaydetbut"
-        android:visibility="invisible">
-
-        <ExpandableListView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/expandableListView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/kaydetbut"
-            android:layout_alignEnd="@+id/kaydetbut"
-            android:visibility="invisible" />
-    </FrameLayout>
+        android:layout_alignRight="@+id/frameLayout"
+        android:layout_alignEnd="@+id/frameLayout" />
 
 </RelativeLayout>
