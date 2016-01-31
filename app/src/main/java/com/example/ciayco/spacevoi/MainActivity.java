@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    //gogogo
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
     public void upload(View v){
