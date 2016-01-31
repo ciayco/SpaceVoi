@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:text="Kaydet"
         android:id="@+id/kaydetbut"
-        android:onClick="startRecording"
         android:layout_above="@+id/calbut"
         android:layout_toLeftOf="@+id/kaydurbut"
         android:layout_toStartOf="@+id/kaydurbut" />
@@ -29,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Kaydı Çal"
         android:id="@+id/calbut"
-        android:onClick="startPlaying"
+        android:onClick="cal"
         android:layout_above="@+id/btnWithText"
         android:layout_alignLeft="@+id/btnWithText"
         android:layout_alignStart="@+id/btnWithText"
@@ -42,15 +41,14 @@
         android:id="@+id/durbut"
         android:layout_below="@+id/calbut"
         android:layout_centerHorizontal="true"
-        android:nestedScrollingEnabled="false"
-        android:onClick="stopPlaying" />
+        android:nestedScrollingEnabled="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kayıt Durdur"
         android:id="@+id/kaydurbut"
-        android:onClick="stopRecording"
+        android:onClick="durdur"
         android:layout_alignTop="@+id/calbut"
         android:layout_toRightOf="@+id/calbut"
         android:layout_toEndOf="@+id/calbut" />
@@ -60,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Gönder"
         android:id="@+id/button"
-        android:onClick="onClickDosyaGonder"
+        android:onClick="upload"
         android:layout_above="@+id/kaydurbut"
         android:layout_alignRight="@+id/btnWithText"
         android:layout_alignEnd="@+id/btnWithText" />
