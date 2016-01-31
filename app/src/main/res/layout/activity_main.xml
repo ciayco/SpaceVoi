@@ -5,19 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.ciayco.spacevoi.MainActivity">
+    tools:context="com.example.ciayco.spacevoi.MainActivity"
+    android:focusable="false"
+    android:focusableInTouchMode="false">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -31,5 +26,19 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
 
+    <ExpandableListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/exp_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/kaydetbut"
+        android:layout_alignEnd="@+id/kaydetbut"
+        android:paddingBottom="250dp"
+        android:paddingTop="75dp"
+        android:paddingLeft="20dp"
+        android:divider="#fe9900"
+        android:dividerHeight="0.5dp"
+        />
 
 </android.support.design.widget.CoordinatorLayout>
