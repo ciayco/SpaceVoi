@@ -1,6 +1,7 @@
 package com.example.ciayco.spacevoi;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.design.widget.FloatingActionButton;
@@ -9,13 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-+import java.util.ArrayList;
-+import java.util.HashMap;
-+import java.util.List;
-+import android.widget.ExpandableListView;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import android.widget.ExpandableListView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
 
     //emre ekleme 1
@@ -25,17 +29,24 @@ public class MainActivity extends AppCompatActivity {
     MoviesAdapter adapter;
     //emre ekleme 1 son
 
-    Upload us = new Upload();
-    SesKayit ka = new SesKayit();
-    public void upload(View v){
-        us.DosyaGonder(getApplicationContext());
+    //Upload us = new Upload();
+   // SesKayit ka = new SesKayit();
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
+    public void upload(View v) {
+      //  us.DosyaGonder(getApplicationContext());
     }
 
-    public void cal(View v){
-        ka.startPlaying();
+    public void cal(View v) {
+      //  ka.startPlaying();
     }
-    public void durdur(View v){
-        ka.stopPlaying();
+
+    public void durdur(View v) {
+     //   ka.stopPlaying();
     }
 
     @Override
@@ -59,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -82,4 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //
+
+
 }
