@@ -26,19 +26,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
 
-    <ExpandableListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/exp_list"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/kaydetbut"
-        android:layout_alignEnd="@+id/kaydetbut"
-        android:paddingBottom="250dp"
-        android:paddingTop="75dp"
-        android:paddingLeft="20dp"
-        android:divider="#fe9900"
-        android:dividerHeight="0.5dp"
-        />
+
 
 </android.support.design.widget.CoordinatorLayout>

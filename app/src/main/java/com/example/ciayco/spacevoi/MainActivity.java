@@ -9,10 +9,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import android.widget.ExpandableListView;
 
 
 public class MainActivity extends AppCompatActivity {
-    //gogogo
+
+
+    //emre ekleme 1
+    HashMap<String, List<String>> Movies_category;
+    List<String> Movies_list;
+    ExpandableListView Exp_list;
+    MoviesAdapter adapter;
+    //emre ekleme 1 son
+
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
     public void upload(View v){
@@ -30,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //emre ekleme 2
+        Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
+        Movies_category = DataProvider.getInfo();
+        Movies_list = new ArrayList<String>(Movies_category.keySet());
+        adapter = new MoviesAdapter(this, Movies_category, Movies_list);
+        Exp_list.setAdapter(adapter);
+        //emre ekleme 2 son
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
