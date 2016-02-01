@@ -86,7 +86,6 @@
             android:visibility="visible"
             android:textSize="30dp"
             android:singleLine="false"
-            android:letterSpacing="1.2"
             android:layout_gravity="right|center_vertical"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
