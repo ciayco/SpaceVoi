@@ -4,13 +4,12 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;
-import android.view.View;
 
 import java.io.IOException;
 
 
 public class SesKayit {
-    /////--------------------SES KAYIT BLOGU
+
     public static final String LOG_TAG = "AudioRecordTest";
     public static String mFileName = null;
     public MediaRecorder mRecorder = null;
@@ -58,5 +57,5 @@ public class SesKayit {
         mFileName += "/uzay.amr";
     }
 
-/////--------------------SES KAYIT BLOGU
+
 }

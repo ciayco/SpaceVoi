@@ -1,58 +1,59 @@
 package com.example.ciayco.spacevoi;
 
 
-import android.net.Uri;
-import android.os.Bundle;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import android.widget.ExpandableListView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import android.widget.ExpandableListView;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+
+
+
 public class MainActivity extends AppCompatActivity  {
 
+    Upload us = new Upload();
+    SesKayit ka = new SesKayit();
 
-    //emre ekleme 1
+
+
+    //region EMRE EKLEME
+    private GoogleApiClient client; //gerekli ???
+
     HashMap<String, List<String>> Movies_category;
     List<String> Movies_list;
     ExpandableListView Exp_list;
     MoviesAdapter adapter;
-    //emre ekleme 1 son
 
-    //Upload us = new Upload();
-   // SesKayit ka = new SesKayit();
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    //endregion
 
+    //region BUTON OLAYLARI
     public void upload(View v) {
-      //  us.DosyaGonder(getApplicationContext());
+      us.DosyaGonder(getApplicationContext());
     }
 
     public void cal(View v) {
-      //  ka.startPlaying();
+      ka.startPlaying();
     }
 
     public void durdur(View v) {
-     //   ka.stopPlaying();
+     ka.stopPlaying();
     }
+    //endregion
 
+    //region ONCREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         //emre ekleme 2
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
@@ -62,10 +63,12 @@ public class MainActivity extends AppCompatActivity  {
         Exp_list.setAdapter(adapter);
         //emre ekleme 2 son
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+
     }
+    //endregion
 
 
 }

@@ -122,5 +122,15 @@
         android:layout_alignRight="@+id/frameLayout"
         android:layout_alignEnd="@+id/frameLayout" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Çıkış"
+        android:id="@+id/cikisbut"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignLeft="@+id/durbut"
+        android:layout_alignStart="@+id/durbut" />
+
 
 </RelativeLayout>
