@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
     //region EMRE EKLEME
-    private GoogleApiClient client; //gerekli ???
+    public GoogleApiClient client;
 
     HashMap<String, List<String>> Movies_category;
     List<String> Movies_list;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity  {
         //emre ekleme 2
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
         Movies_category = DataProvider.getInfo();
-        Movies_list = new ArrayList<String>(Movies_category.keySet());
+        Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new MoviesAdapter(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);
         //emre ekleme 2 son
