@@ -19,7 +19,7 @@ import cz.msebera.android.httpclient.Header;
 public class Upload {
 
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
-    String uploadAdresi = "http://www.laforizma.com/upload.php";
+    String uploadAdresi = "http://www.spacevoice.tk/upload.php";
     String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/uzay.amr";
     // upload download işlemlerinin % olarak göstermek için kullanılacak progress dialog
     ProgressDialog pDialog;

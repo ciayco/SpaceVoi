@@ -43,8 +43,8 @@
         android:nestedScrollingEnabled="false"
         android:layout_alignBaseline="@+id/button"
         android:layout_alignBottom="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_toEndOf="@+id/kaydurbut"
+        android:layout_toRightOf="@+id/kaydurbut" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,8 +53,8 @@
         android:id="@+id/kaydurbut"
         android:onClick="durdur"
         android:layout_below="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_toRightOf="@+id/kaydetbut"
+        android:layout_toEndOf="@+id/kaydetbut" />
 
     <Button
         android:layout_width="wrap_content"
@@ -122,15 +122,17 @@
         android:layout_alignRight="@+id/frameLayout"
         android:layout_alignEnd="@+id/frameLayout" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Çıkış"
-        android:id="@+id/cikisbut"
+        android:text="@string/username"
+        android:id="@+id/login_user"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:textStyle="bold"
         android:layout_above="@+id/progressBar"
-        android:layout_alignLeft="@+id/durbut"
-        android:layout_alignStart="@+id/durbut" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp" />
 
 
 </RelativeLayout>
