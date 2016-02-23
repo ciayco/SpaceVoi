@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -48,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username = (EditText)findViewById(R.id.username_field);
-        password = (EditText)findViewById(R.id.password_field);
-        Button loginButton = (Button)findViewById(R.id.login);
-        Button registerButton = (Button)findViewById(R.id.register_button);
+        username = (EditText)findViewById(R.id.etUsername);
+        password = (EditText)findViewById(R.id.etPassword);
+        ImageButton loginButton = (ImageButton)findViewById(R.id.ibLogin);
+        /*Button registerButton = (Button)findViewById(R.id.labSignup);*/
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,13 +74,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+       /* registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private class AsyncDataClass extends AsyncTask<String, Void, String> {
