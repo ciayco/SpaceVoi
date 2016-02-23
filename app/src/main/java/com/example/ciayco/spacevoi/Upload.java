@@ -36,6 +36,7 @@ public class Upload {
     }
 
     public void DosyaGonder(final Context ctx) {
+
         File file = new File(dosyaKayitYeri);
         try {
             params.put("dosya", file);
@@ -43,17 +44,7 @@ public class Upload {
             e.printStackTrace();
         }
 
-        ////sonradan eklenen
-        pDialog = new ProgressDialog(ctx);
-        pDialog.setIndeterminate(false);
-        pDialog.setMax(100);
-        pDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pDialog.setCancelable(true);
-////
-
-        pDialog.setMessage("Dosya gönderiliyor. Lütfen bekleyin...");
-        pDialog.show();
-
+       
         client.post(uploadAdresi, params, new AsyncHttpResponseHandler() {
 
 
