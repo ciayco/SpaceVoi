@@ -16,7 +16,9 @@ public class SesKayit {
     public MediaPlayer mPlayer = null;
 
 
-    public void startPlaying() {
+    public void startPlaying(String kullanici) {
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/SpaceVoi/"+kullanici+".amr";
         mPlayer = new MediaPlayer();
         try {
             mPlayer.setDataSource(mFileName);
@@ -32,7 +34,9 @@ public class SesKayit {
         mPlayer = null;
     }
 
-    public void startRecording() {
+    public void startRecording(String kullanici) {
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/SpaceVoi/"+kullanici+".amr";
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
@@ -52,10 +56,7 @@ public class SesKayit {
         mRecorder.release();
         mRecorder = null;
     }
-    public SesKayit() {
-        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/uzay.amr";
-    }
+
 
 
 }

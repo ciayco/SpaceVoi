@@ -1,8 +1,6 @@
 package com.example.ciayco.spacevoi;
 
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +10,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity  {
 
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
-
+    static String loggedUser;
 
     //region EMRE EKLEME
     public GoogleApiClient client;
@@ -38,17 +37,31 @@ public class MainActivity extends AppCompatActivity  {
     //endregion
 
     //region BUTON OLAYLARI
-    public void upload(View v) {
-      us.DosyaGonder(getApplicationContext());
+
+    public void gonder(View v) {
+        //time stamp sonradan gerekecekler
+        //Date zaman = new Date();
+        //String damga = Long.toString(zaman.getTime()) ;
+        //loggedUser += damga;
+        us.DosyaGonder(getApplicationContext());
+    }
+
+    public void kaydet(View v){
+     ka.startRecording(loggedUser);
+    }
+
+    public void kayitdurdur(View v){
+     ka.stopRecording();
     }
 
     public void cal(View v) {
-      ka.startPlaying();
+      ka.startPlaying(loggedUser);
     }
 
     public void durdur(View v) {
      ka.stopPlaying();
     }
+
     //endregion
 
     //region ONCREATE
@@ -67,16 +80,19 @@ public class MainActivity extends AppCompatActivity  {
 
        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+
         //Login Ekleme
+
         Intent intent = getIntent();
         Bundle intentBundle = intent.getExtras();
-        String loggedUser = intentBundle.getString("USERNAME");
-        loggedUser = capitalizeFirstCharacter(loggedUser);
+        this.loggedUser = intentBundle.getString("USERNAME");
+
+        this.loggedUser = capitalizeFirstCharacter(this.loggedUser);
 
 
         TextView loginUsername = (TextView)findViewById(R.id.login_user);
 
-        loginUsername.setText(loggedUser);
+        loginUsername.setText(this.loggedUser);
 
         //Login Ekleme
     }
