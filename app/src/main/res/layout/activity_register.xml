@@ -103,7 +103,7 @@
                 android:layout_height="70dp"
                 android:id="@+id/sign_up"
                 android:background="#00ffffff"
-                android:src="@mipmap/loginbuton"
+                android:src="@mipmap/registerbuton"
                 android:scaleType="fitXY"
                 android:layout_marginTop="20dp" />
         </LinearLayout>
