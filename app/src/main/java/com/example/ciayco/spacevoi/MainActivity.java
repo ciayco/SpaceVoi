@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity  {
         //Date zaman = new Date();
         //String damga = Long.toString(zaman.getTime()) ;
         //loggedUser += damga;
-
+        us.DosyaGonder(getApplicationContext(),loggedUser);
     }
 
     public void kaydet(View v){
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity  {
 
        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        us.DosyaGonder(getApplicationContext());
+
         //Login Ekleme
 
         Intent intent = getIntent();

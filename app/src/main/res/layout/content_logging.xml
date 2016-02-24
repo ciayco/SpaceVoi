@@ -55,7 +55,8 @@
                 android:textColor="#ffffff"
                 android:foreground="#50f5f5f5"
                 android:textColorHint="#80ffffff"
-                android:paddingLeft="20dp" />
+                android:paddingLeft="20dp"
+                android:text="gokhan" />
 
             <EditText
                 android:layout_width="fill_parent"
@@ -68,7 +69,8 @@
                 android:layout_marginTop="10dp"
                 android:textColorHint="#80ffffff"
                 android:textIsSelectable="false"
-                android:paddingLeft="20dp" />
+                android:paddingLeft="20dp"
+                android:text="gokhan" />
         </LinearLayout>
 
         <LinearLayout

@@ -20,9 +20,9 @@ public class Upload {
 
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.spacevoice.tk/upload.php";
-    String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SpaceVoice/gokhan.amr";
+
     // upload download işlemlerinin % olarak göstermek için kullanılacak progress dialog
-    ProgressDialog pDialog;
+    //ProgressDialog pDialog;
     // get ve post işlemleri yapacağımız AsyncHttpClient nesnesi
     final AsyncHttpClient client = new AsyncHttpClient();
     // dosya gönderirken dosyayı iliştireceğimiz nesne.
@@ -35,11 +35,12 @@ public class Upload {
                 .show();
     }
 
-    public void DosyaGonder(final Context ctx) {
-
+    public void DosyaGonder(final Context ctx,String kullanici) {
+        String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SpaceVoi/" +kullanici+ ".amr";
         File file = new File(dosyaKayitYeri);
         try {
             params.put("dosya", file);
+            params.put("kullanici", kullanici);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -50,15 +51,15 @@ public class Upload {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-                mesajGoster(ctx,"Dosya sunucuya gönderildi!");
+                mesajGoster(ctx, "Dosya sunucuya gönderildi!");
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                mesajGoster(ctx,"Dosya sunucuya gönderilemedi!");
+                mesajGoster(ctx, "Dosya sunucuya gönderilemedi!");
             }
 
-
+            /*
             @Override
             public void onProgress(long bytesWritten, long totalSize) {
                 super.onProgress(bytesWritten, totalSize);
@@ -69,6 +70,7 @@ public class Upload {
                 if (progress == 100)
                     pDialog.dismiss();
             }
+            */
         });
     }
 
