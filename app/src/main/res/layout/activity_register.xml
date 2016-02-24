@@ -9,7 +9,7 @@
     android:paddingRight="20dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ciayco.spacevoi.LoginActivity"
+    tools:context="com.example.ciayco.spacevoi.RegisterActivity"
    android:background="@mipmap/background">
 
     <LinearLayout

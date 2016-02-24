@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -52,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = (EditText)findViewById(R.id.username_field);
         password = (EditText)findViewById(R.id.password_field);
         email = (EditText)findViewById(R.id.email_field);
-        Button signUpButton = (Button)findViewById(R.id.sign_up);
+        ImageButton signUpButton = (ImageButton)findViewById(R.id.sign_up);
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
