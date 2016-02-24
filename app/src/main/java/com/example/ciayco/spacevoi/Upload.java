@@ -20,7 +20,7 @@ public class Upload {
 
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.spacevoice.tk/upload.php";
-    String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/uzay.amr";
+    String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/gokhan.amr";
     // upload download işlemlerinin % olarak göstermek için kullanılacak progress dialog
     ProgressDialog pDialog;
     // get ve post işlemleri yapacağımız AsyncHttpClient nesnesi
