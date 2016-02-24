@@ -35,8 +35,8 @@ public class Upload {
                 .show();
     }
 
-    public void DosyaGonder(final Context ctx,String kullanici) {
-        String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SpaceVoi/" +kullanici+ ".amr";
+    public void DosyaGonder(final Context ctx,String kullanici,String kayitkodu) {
+        String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SpaceVoi/" +kayitkodu+ ".amr";
         File file = new File(dosyaKayitYeri);
         try {
             params.put("dosya", file);

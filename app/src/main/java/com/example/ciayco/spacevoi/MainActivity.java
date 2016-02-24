@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
     static String loggedUser;
+    static String kayitkodu;
 
     //region EMRE EKLEME
     public GoogleApiClient client;
@@ -39,15 +40,16 @@ public class MainActivity extends AppCompatActivity  {
     //region BUTON OLAYLARI
 
     public void gonder(View v) {
-        //time stamp sonradan gerekecekler
-        //Date zaman = new Date();
-        //String damga = Long.toString(zaman.getTime()) ;
-        //loggedUser += damga;
-        us.DosyaGonder(getApplicationContext(),loggedUser);
+
+
+        us.DosyaGonder(getApplicationContext(),loggedUser,kayitkodu);
     }
 
     public void kaydet(View v){
-     ka.startRecording(loggedUser);
+        Date zaman = new Date();
+        String damga = Long.toString(zaman.getTime()) ;
+        this.kayitkodu = loggedUser + damga;
+     ka.startRecording(kayitkodu);
     }
 
     public void kayitdurdur(View v){
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void cal(View v) {
-      ka.startPlaying(loggedUser);
+      ka.startPlaying(kayitkodu);
     }
 
     public void durdur(View v) {

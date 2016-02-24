@@ -44,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
     protected String enteredUsername;
     private final String serverUrl = "http://www.spacevoice.tk/index.php";
 
+
+    public void registeractivty(View v) {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,13 +80,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-       /* registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });*/
+
+
+
     }
 
     private class AsyncDataClass extends AsyncTask<String, Void, String> {
