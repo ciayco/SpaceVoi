@@ -1,6 +1,7 @@
 package com.example.ciayco.spacevoi;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,11 +84,19 @@ public class MoviesAdapter extends BaseExpandableListAdapter{
         }
     TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
     child_textview.setText(child_title);
-
+    child_textview.setTextColor(Color.parseColor("#bdbdbd"));
         return convertView;
     }
 
+    //child verisi çekmek için
+    public String getChildData(int parent, int child) {
+        String child_title = (String) getChild(parent, child);
+
+        return child_title;
+    }
+
     @Override
+
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }

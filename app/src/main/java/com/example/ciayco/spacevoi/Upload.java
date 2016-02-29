@@ -1,6 +1,6 @@
 package com.example.ciayco.spacevoi;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.os.Environment;
 import android.widget.Toast;
@@ -21,8 +21,6 @@ public class Upload {
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.spacevoice.tk/upload.php";
 
-    // upload download işlemlerinin % olarak göstermek için kullanılacak progress dialog
-    //ProgressDialog pDialog;
     // get ve post işlemleri yapacağımız AsyncHttpClient nesnesi
     final AsyncHttpClient client = new AsyncHttpClient();
     // dosya gönderirken dosyayı iliştireceğimiz nesne.
@@ -45,7 +43,7 @@ public class Upload {
             e.printStackTrace();
         }
 
-       
+
         client.post(uploadAdresi, params, new AsyncHttpResponseHandler() {
 
 
@@ -59,18 +57,7 @@ public class Upload {
                 mesajGoster(ctx, "Dosya sunucuya gönderilemedi!");
             }
 
-            /*
-            @Override
-            public void onProgress(long bytesWritten, long totalSize) {
-                super.onProgress(bytesWritten, totalSize);
-                long progress = (bytesWritten * 100) / totalSize;
 
-                pDialog.setProgress((int) progress);
-
-                if (progress == 100)
-                    pDialog.dismiss();
-            }
-            */
         });
     }
 

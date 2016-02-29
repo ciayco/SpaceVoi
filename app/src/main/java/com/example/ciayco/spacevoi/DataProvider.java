@@ -1,5 +1,9 @@
 package com.example.ciayco.spacevoi;
 
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,42 +13,26 @@ import java.util.List;
  */
 public class DataProvider {
 
+    final  static int i=0;
     public static HashMap<String, List<String>> getInfo()
     {
+
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+        path += "/SpaceVoi";
+        File f = new File(path);
+        File file[] = f.listFiles();
+
         HashMap<String, List<String>> MoviesDetails = new HashMap<String, List<String>>();
         List<String> Action_Movies = new ArrayList<String>();
-        Action_Movies.add("Robocop");
-        Action_Movies.add("Robocop 2");
-        Action_Movies.add("Robocop 3");
-        Action_Movies.add("Robocop 4");
-        Action_Movies.add("Robocop 5");
+
+        for(int i=0; i < file.length; i++) {
+            Action_Movies.add(file[i].getName());
+        }
 
 
-        List<String> Romantic_Movies = new ArrayList<String>();
-        Romantic_Movies.add("Romanik film 1");
-        Romantic_Movies.add("Romanik film 2");
-        Romantic_Movies.add("Romanik film 3");
-        Romantic_Movies.add("Romanik film 4");
-        Romantic_Movies.add("Romanik film 5");
+        MoviesDetails.put("Ses Kayıtları", Action_Movies);
 
-        List<String> Horror_Movies = new ArrayList<String>();
-        Horror_Movies.add("Horror film 1");
-        Horror_Movies.add("Horror film 2");
-        Horror_Movies.add("Horror film 3");
-        Horror_Movies.add("Horror film 4");
-        Horror_Movies.add("Horror film 5");
 
-        List<String> Comedy_Movies = new ArrayList<String>();
-        Comedy_Movies.add("komedi film 1");
-        Comedy_Movies.add("komedi film 2");
-        Comedy_Movies.add("komedi film 3");
-        Comedy_Movies.add("komedi film 4");
-        Comedy_Movies.add("komedi film 5");
-
-        MoviesDetails.put("Actiono Movies", Action_Movies);
-        MoviesDetails.put("Romantico Movies", Romantic_Movies);
-        MoviesDetails.put("Horrorico Movies", Horror_Movies);
-        MoviesDetails.put("Comedico Movies", Comedy_Movies);
 
         return MoviesDetails;
     }

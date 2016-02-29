@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -22,12 +23,15 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity  {
 
+
+    //region Tanımlamalar
     Upload us = new Upload();
     SesKayit ka = new SesKayit();
     static String loggedUser;
     static String kayitkodu;
+    static String link;
 
-    //region EMRE EKLEME
+
     public GoogleApiClient client;
 
     HashMap<String, List<String>> Movies_category;
@@ -37,74 +41,93 @@ public class MainActivity extends AppCompatActivity  {
 
     //endregion
 
-    //region BUTON OLAYLARI
-
-    public void gonder(View v) {
 
 
-        us.DosyaGonder(getApplicationContext(),loggedUser,kayitkodu);
-    }
-
-    public void kaydet(View v){
-        Date zaman = new Date();
-        String damga = Long.toString(zaman.getTime()) ;
-        this.kayitkodu = loggedUser + damga;
-     ka.startRecording(kayitkodu);
-    }
-
-    public void kayitdurdur(View v){
-     ka.stopRecording();
-    }
-
-    public void cal(View v) {
-      ka.startPlaying(kayitkodu);
-    }
-
-    public void durdur(View v) {
-     ka.stopPlaying();
-    }
-
-    //endregion
-
-    //region ONCREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //emre ekleme 2
+        //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
         Movies_category = DataProvider.getInfo();
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new MoviesAdapter(this, Movies_category, Movies_list);
           Exp_list.setAdapter(adapter);
-        //emre ekleme 2 son
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        //endregion
 
-       client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-
-        //Login Ekleme
-
+        //region Login
         Intent intent = getIntent();
         Bundle intentBundle = intent.getExtras();
-        this.loggedUser = intentBundle.getString("USERNAME");
+        loggedUser = intentBundle.getString("USERNAME");
+        loggedUser = loggedUser.toLowerCase();
+        loggedUser = loggedUser.substring(0,1).toUpperCase()+ loggedUser.substring(1);
 
-        this.loggedUser = capitalizeFirstCharacter(this.loggedUser);
+        final TextView loginUsername = (TextView)findViewById(R.id.login_user);
+
+        loginUsername.setText(loggedUser);
+
+        //endregion
 
 
-        TextView loginUsername = (TextView)findViewById(R.id.login_user);
+        //region Butonlar
 
-        loginUsername.setText(this.loggedUser);
+        //Listview click
+        Exp_list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
-        //Login Ekleme
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                // TODO Auto-generated method stub
+
+                link = adapter.getChildData(groupPosition, childPosition);
+                if (ka.playerkontrol()) {
+                    ka.startPlaying(link);
+                } else
+                    ka.stopPlaying();
+                return false;
+
+            }
+        });
+
+
+        //Kaydet Click
+        final Button kayit = (Button)findViewById(R.id.kaydetbut);
+
+        kayit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ka.kayitkontrol()) {
+                    Date zaman = new Date();
+                    String damga = Long.toString(zaman.getTime());
+                    kayitkodu = loggedUser + damga;
+                    ka.startRecording(kayitkodu);
+                    kayit.setText("Kaydediliyor");
+                } else {
+                    ka.stopRecording();
+                    kayit.setText("Kaydet");
+                }
+            }
+        });
+
+        //Gönder Buton
+        final Button gonder = (Button)findViewById(R.id.gonderbut);
+        gonder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
+            }
+        });
+
+
+        //endregion
+
     }
 
-    private String capitalizeFirstCharacter(String textInput){
-        String input = textInput.toLowerCase();
-        String output = input.substring(0, 1).toUpperCase() + input.substring(1);
-        return output;
-    }
-    //endregion
+
+
 
 
 }

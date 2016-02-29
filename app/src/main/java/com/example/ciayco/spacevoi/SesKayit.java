@@ -18,7 +18,7 @@ public class SesKayit {
 
     public void startPlaying(String kullanici) {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/SpaceVoi/"+kullanici+".amr";
+        mFileName += "/SpaceVoi/"+kullanici;
         mPlayer = new MediaPlayer();
         try {
             mPlayer.setDataSource(mFileName);
@@ -32,6 +32,20 @@ public class SesKayit {
     public void stopPlaying() {
         mPlayer.release();
         mPlayer = null;
+    }
+
+    public boolean playerkontrol() {
+        if (mPlayer == null )
+            return true;
+        else
+            return false;
+    }
+
+    public boolean kayitkontrol() {
+        if (mRecorder == null )
+            return true;
+        else
+            return false;
     }
 
     public void startRecording(String kullanici) {
