@@ -37,35 +37,6 @@
         android:layout_alignEnd="@+id/progressBar"
         android:layout_alignParentBottom="true" />
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:background="#0a141e"
-        android:id="@+id/frameLayout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="187dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="SpaceVoi"
-            android:id="@+id/textView"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:visibility="visible"
-            android:textSize="30dp"
-            android:singleLine="false"
-            android:layout_gravity="right|center_vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="#fe9900" />
-
-    </FrameLayout>
-
-
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -84,14 +55,13 @@
         android:layout_width="100dp"
         android:layout_height="250dp"
         android:id="@+id/exp_list"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:paddingLeft="20dp"
         android:divider="#fe9900"
         android:dividerHeight="0.5dp"
-        android:layout_below="@+id/frameLayout"
-        android:layout_alignRight="@+id/frameLayout"
-        android:layout_alignEnd="@+id/frameLayout" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"

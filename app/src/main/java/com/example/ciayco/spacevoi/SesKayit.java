@@ -35,7 +35,7 @@ public class SesKayit {
     }
 
     public boolean playerkontrol() {
-        if (mPlayer == null )
+        if (mPlayer == null || !mPlayer.isPlaying() )
             return true;
         else
             return false;

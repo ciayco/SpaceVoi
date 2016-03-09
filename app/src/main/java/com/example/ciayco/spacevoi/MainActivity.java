@@ -1,14 +1,20 @@
 package com.example.ciayco.spacevoi;
 
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +27,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
 
     //region Tanımlamalar
@@ -41,6 +47,11 @@ public class MainActivity extends AppCompatActivity  {
 
     //endregion
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
 
     @Override
@@ -48,12 +59,26 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        android.support.v7.app.ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater mInflater = LayoutInflater.from(this);
+        View mCustomView = mInflater.inflate(R.layout.ana_bar, null);
+        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.baslik);
+        mTitleTextView.setText("SpaceVoi");
+
+
+
+
+        mActionBar.setCustomView(mCustomView);
+        mActionBar.setDisplayShowCustomEnabled(true);
+
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
         Movies_category = DataProvider.getInfo();
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new MoviesAdapter(this, Movies_category, Movies_list);
-          Exp_list.setAdapter(adapter);
+        Exp_list.setAdapter(adapter);
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         //endregion
 
@@ -67,7 +92,7 @@ public class MainActivity extends AppCompatActivity  {
 
         final TextView loginUsername = (TextView)findViewById(R.id.login_user);
 
-        loginUsername.setText(loggedUser);
+        loginUsername.setText("Hoşgeldin " + loggedUser);
 
         //endregion
 
@@ -118,6 +143,18 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
+            }
+        });
+
+        //Action Bar Button
+        ImageButton imageButton = (ImageButton) mCustomView
+                .findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Refresh Clicked!",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
