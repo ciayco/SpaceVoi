@@ -1,23 +1,22 @@
 package com.example.ciayco.spacevoi;
 
 
-import android.app.ActionBar;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 
-import android.widget.Button;
+
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -118,43 +117,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //Kaydet Click
-        final Button kayit = (Button)findViewById(R.id.kaydetbut);
 
-        kayit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ka.kayitkontrol()) {
-                    Date zaman = new Date();
-                    String damga = Long.toString(zaman.getTime());
-                    kayitkodu = loggedUser + damga;
-                    ka.startRecording(kayitkodu);
-                    kayit.setText("Kaydediliyor");
-                } else {
-                    ka.stopRecording();
-                    kayit.setText("Kaydet");
-                }
-            }
-        });
 
-        //Gönder Buton
-        final Button gonder = (Button)findViewById(R.id.gonderbut);
-        gonder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
-            }
-        });
-
-        //Action Bar Button
-        ImageButton imageButton = (ImageButton) mCustomView
-                .findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton upbut = (ImageButton) mCustomView
+                .findViewById(R.id.upload);
+        upbut.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Refresh Clicked!",
-                        Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, UpActivity.class);
+                intent.putExtra("USERNAME", loggedUser);
+
+                startActivity(intent);
             }
         });
 
