@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="50dp">
+    android:layout_height="wrap_content"
+    android:background="#30ffffff">
 
 
     <TextView
@@ -12,37 +13,34 @@
         android:id="@+id/baslik"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:visibility="visible"
-        android:textSize="30dp"
-        android:singleLine="false"
+        android:textSize="36dp"
         android:layout_gravity="right|center_vertical"
         android:textColor="#fe9900"
-        android:layout_toRightOf="@+id/upload"
-        android:layout_toEndOf="@+id/upload"
-        android:layout_centerVertical="true" />
+        android:paddingTop="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="right" />
 
     <ImageButton
         android:id="@+id/upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:src="@mipmap/rocket"
+        android:src="@mipmap/upload_tab"
         android:layout_toEndOf="@+id/mainmenu"
         android:layout_alignTop="@+id/baslik"
-        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/mainmenu"
-        android:scaleType="fitXY" />
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="20dp" />
 
     <ImageButton
         android:id="@+id/mainmenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:src="@mipmap/main"
+        android:src="@mipmap/new_menu"
         android:layout_alignTop="@+id/baslik"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:scaleType="fitXY" />
+        android:layout_marginLeft="20dp" />
 
 </RelativeLayout>
