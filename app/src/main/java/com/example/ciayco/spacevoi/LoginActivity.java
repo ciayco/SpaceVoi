@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                 intent.putExtra("USERNAME", enteredUsername);
                 intent.putExtra("MESSAGE", "You have been successfully login");
                 startActivity(intent);
+                finish();
             }
         }
         private StringBuilder inputStreamToString(InputStream is) {
