@@ -12,14 +12,15 @@
         android:id="@+id/baslik"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="36dp"
+        android:textSize="36sp"
         android:layout_gravity="right|center_vertical"
         android:textColor="#fe9900"
         android:paddingTop="5dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_marginRight="7dp" />
 
     <ImageButton
         android:id="@+id/upload"
@@ -30,8 +31,7 @@
         android:layout_toEndOf="@+id/mainmenu"
         android:layout_alignTop="@+id/baslik"
         android:layout_toRightOf="@+id/mainmenu"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="10dp" />
 
     <ImageButton
         android:id="@+id/mainmenu"
@@ -40,6 +40,6 @@
         android:background="@null"
         android:src="@mipmap/new_menu"
         android:layout_alignTop="@+id/baslik"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>
