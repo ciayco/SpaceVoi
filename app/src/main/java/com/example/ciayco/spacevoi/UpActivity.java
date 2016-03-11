@@ -43,6 +43,19 @@ public class UpActivity extends AppCompatActivity {
             startActivity(intent);
 
         }
+        else if (id==R.id.profil_sayfa)
+        {
+            Intent intent = new Intent(UpActivity.this, ProfilActivity.class);
+            intent.putExtra("USERNAME", loggedUser);
+            startActivity(intent);
+        }
+        else if(id==R.id.mainmenu)
+        {
+            Intent intent = new Intent(UpActivity.this, MainActivity.class);
+            intent.putExtra("USERNAME", loggedUser);
+            startActivity(intent);
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -50,20 +63,6 @@ public class UpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.up_activity);
-
-        //region Bar Oluştur
-
-        android.support.v7.app.ActionBar mActionBar = getSupportActionBar();
-        mActionBar.setDisplayShowHomeEnabled(false);
-        mActionBar.setDisplayShowTitleEnabled(false);
-        LayoutInflater mInflater = LayoutInflater.from(this);
-        View mCustomView = mInflater.inflate(R.layout.ana_bar, null);
-        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.baslik);
-        mTitleTextView.setText("SpaceVoi");
-        mActionBar.setCustomView(mCustomView);
-        mActionBar.setDisplayShowCustomEnabled(true);
-
-        //endregion
 
 
         //region Login
@@ -111,20 +110,7 @@ public class UpActivity extends AppCompatActivity {
             }
         });
 
-        //Action Bar Button
-        ImageButton mainbut = (ImageButton) mCustomView
-                .findViewById(R.id.mainmenu);
-        mainbut.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(UpActivity.this, MainActivity.class);
-                intent.putExtra("USERNAME", loggedUser);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
         //endregion

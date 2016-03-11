@@ -8,7 +8,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/profile_white"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
 
@@ -25,8 +25,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UpActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".UpActivity"
+            android:label="SpaceVoi">
+
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:label="SpaceVoi">
+
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:label="@string/kayit_yazi"></activity>
@@ -36,8 +43,16 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".AyarlarActivity"
-            android:label="@string/title_activity_ayarlar"></activity>
+        android:name=".AyarlarActivity"
+        android:label="@string/title_activity_ayarlar">
+
+        </activity>
+
+        <activity
+            android:name=".ProfilActivity"
+            android:label="@string/profil">
+
+        </activity>
     </application>
 
 </manifest>
