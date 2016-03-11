@@ -21,7 +21,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:id="@+id/topBar"
             android:layout_weight="0"
             android:visibility="invisible">
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textFieldHolder"
             android:layout_weight="0"
-            android:paddingTop="40dp"
+            android:paddingTop="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp">
 
