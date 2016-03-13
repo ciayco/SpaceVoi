@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:id="@+id/login_user"
-        android:textColor="#ffffff"
+        android:textColor="#ffbb00"
         android:textSize="40sp"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"

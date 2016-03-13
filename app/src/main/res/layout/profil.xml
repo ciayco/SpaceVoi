@@ -9,7 +9,7 @@
         android:layout_width="154dp"
         android:layout_height="155dp"
         android:id="@+id/imageView"
-        android:src="@mipmap/profil"
+        android:src="@mipmap/profile_white"
         android:scaleType="fitXY"
         android:padding="3dp"
         android:background="#0f133f"
