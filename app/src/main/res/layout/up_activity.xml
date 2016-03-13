@@ -19,7 +19,6 @@
         android:background="@drawable/btn_selector_kaydet"
         android:text="Kaydet"
         android:id="@+id/kaydetbut"
-        android:onClick="kaydet"
         android:layout_marginBottom="29dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/login_user"
@@ -43,7 +42,6 @@
         android:background="@drawable/btn_selector_gonder"
         android:text="Gönder"
         android:id="@+id/gonderbut"
-        android:onClick="gonder"
         android:layout_alignTop="@+id/kaydetbut"
         android:layout_alignRight="@+id/login_user"
         android:layout_alignEnd="@+id/login_user" />
