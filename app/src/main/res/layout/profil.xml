@@ -5,42 +5,80 @@
     android:weightSum="1"
     android:background="@mipmap/background">
 
-    <ImageView
-        android:layout_width="154dp"
-        android:layout_height="155dp"
-        android:id="@+id/imageView"
-        android:src="@mipmap/profile_white"
-        android:scaleType="fitXY"
-        android:padding="3dp"
-        android:background="#0f133f"
-        android:layout_marginTop="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <ExpandableListView
-        android:layout_width="100dp"
-        android:layout_height="250dp"
-        android:id="@+id/exp_list"
-        android:paddingLeft="20dp"
-        android:divider="#fe9900"
-        android:dividerHeight="0.5dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentBottom="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:id="@+id/login_user"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:id="@+id/ppHolder"
+            android:layout_marginTop="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:id="@+id/profile_image"
+                android:src="@mipmap/profile_white"
+                app:civ_border_width="3dp"
+                app:civ_border_color="#80ffffff"
+                android:background="#00ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameHolder"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username"
+                android:id="@+id/login_user"
+                android:textColor="#99ffbb00"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/profile_image"
+                android:layout_toRightOf="@+id/profile_image"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:id="@+id/detHolder"></LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listHolder">
+
+            <ExpandableListView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/exp_list"
+                android:paddingLeft="20dp"
+                android:divider="#fe9900"
+                android:dividerHeight="0.5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/profile_image"
+                android:layout_alignParentBottom="true" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
