@@ -3,12 +3,10 @@ package com.example.ciayco.spacevoi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -18,14 +16,18 @@ import java.util.Date;
 public class UpActivity extends AppCompatActivity {
 
     //region Tanımlamalar
-    Upload us = new Upload();
-    SesKayit ka = new SesKayit();
+    UpDownSınıf us = new UpDownSınıf();
+    PoolKayitlari pool = new PoolKayitlari();
+    KaydetCalSınıf ka = new KaydetCalSınıf();
     static String loggedUser;
     static String kayitkodu;
 
 
 
     //endregion
+
+
+    //region Ayarlar ve bar menu
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,6 +60,8 @@ public class UpActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+//endregion
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,9 +114,19 @@ public class UpActivity extends AppCompatActivity {
             }
         });
 
+        final Button indir = (Button)findViewById(R.id.inbut);
+        indir.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                us.DosyaIndir(getApplicationContext());
+            }
+        });
+
+
 
 
 
         //endregion
+
     }
 }

@@ -12,12 +12,12 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
 
-public class MoviesAdapter extends BaseExpandableListAdapter{
+public class ListAdapterSınıf extends BaseExpandableListAdapter{
     private Context ctx;
     private HashMap<String, List<String>> Movies_Category;
     private List<String> Movies_List;
 
-    public MoviesAdapter(Context ctx, HashMap<String, List<String>> Movies_Category,List<String> Movies_List)
+    public ListAdapterSınıf(Context ctx, HashMap<String, List<String>> Movies_Category, List<String> Movies_List)
     {
         this.ctx = ctx;
         this.Movies_Category = Movies_Category;

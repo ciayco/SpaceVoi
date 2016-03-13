@@ -11,10 +11,10 @@ import java.util.List;
 /**
  * Created by Jolene on 30.1.2016.
  */
-public class DataProvider {
+public class KayıtlarSınıf {
 
-    final  static int i=0;
-    public static HashMap<String, List<String>> getInfo()
+
+    public static HashMap<String, List<String>> getInfoKayıtlarım()
     {
 
         String path = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -37,5 +37,15 @@ public class DataProvider {
         return MoviesDetails;
     }
 
+    /*
+    public static HashMap<String,List<String>> getInfoPoolKayıtları()
+    {
+
+
+
+        return ;
+    }
+
+    */
 
 }

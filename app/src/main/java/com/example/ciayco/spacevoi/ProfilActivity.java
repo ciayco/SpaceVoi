@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 
@@ -20,8 +18,8 @@ import java.util.List;
 public class ProfilActivity extends AppCompatActivity {
 
     //region Tanımlamalar
-    Upload us = new Upload();
-    SesKayit ka = new SesKayit();
+    UpDownSınıf us = new UpDownSınıf();
+    KaydetCalSınıf ka = new KaydetCalSınıf();
     static String loggedUser;
     static String kayitkodu;
     static String link;
@@ -29,7 +27,7 @@ public class ProfilActivity extends AppCompatActivity {
     HashMap<String, List<String>> Movies_category;
     List<String> Movies_list;
     ExpandableListView Exp_list;
-    MoviesAdapter adapter;
+    ListAdapterSınıf adapter;
 
     //endregion
 
@@ -54,9 +52,9 @@ public class ProfilActivity extends AppCompatActivity {
 
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
-        Movies_category = DataProvider.getInfo();
+        Movies_category = KayıtlarSınıf.getInfoKayıtlarım();
         Movies_list = new ArrayList<>(Movies_category.keySet());
-        adapter = new MoviesAdapter(this, Movies_category, Movies_list);
+        adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);
         //endregion
 

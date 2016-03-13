@@ -4,15 +4,9 @@ package com.example.ciayco.spacevoi;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -23,15 +17,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     //region Tanımlamalar
-    Upload us = new Upload();
-    SesKayit ka = new SesKayit();
-    static String loggedUser;
+    UpDownSınıf us = new UpDownSınıf();
+    KaydetCalSınıf ka = new KaydetCalSınıf();
+    static String loggedUser ;
     static String kayitkodu;
     static String link;
 
 
     //endregion
 
+
+    //region Ayarlar ve top bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -63,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+        //endregion
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

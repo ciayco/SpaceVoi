@@ -8,7 +8,7 @@ import android.util.Log;
 import java.io.IOException;
 
 
-public class SesKayit {
+public class KaydetCalSınıf {
 
     public static final String LOG_TAG = "AudioRecordTest";
     public static String mFileName = null;
