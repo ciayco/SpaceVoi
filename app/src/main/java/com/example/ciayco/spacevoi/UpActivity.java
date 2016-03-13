@@ -17,7 +17,6 @@ public class UpActivity extends AppCompatActivity {
 
     //region Tanımlamalar
     UpDownSınıf us = new UpDownSınıf();
-    PoolKayitlari pool = new PoolKayitlari();
     KaydetCalSınıf ka = new KaydetCalSınıf();
     static String loggedUser;
     static String kayitkodu;
@@ -114,13 +113,6 @@ public class UpActivity extends AppCompatActivity {
             }
         });
 
-        final Button indir = (Button)findViewById(R.id.inbut);
-        indir.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                us.DosyaIndir(getApplicationContext());
-            }
-        });
 
 
 
