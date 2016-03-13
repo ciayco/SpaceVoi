@@ -10,6 +10,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -111,6 +112,22 @@ public class UpDownSınıf {
 //endregion
 
 
+    public void StringCek(){
+
+            params.put("pool", "pool");
+
+        client.post(uploadAdresi, params, new TextHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, String x) {
+
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, String x, Throwable throwable) {
+
+            }
+        });
+    }
 
     public void pump(InputStream in, OutputStream out, int size,Context ctxx) {
         byte[] buffer = new byte[4096];
