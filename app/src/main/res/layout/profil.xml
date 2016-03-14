@@ -37,7 +37,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/nameHolder"
             android:layout_marginTop="5dp">
 
@@ -49,20 +49,19 @@
                 android:textColor="#ffffff"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:layout_alignTop="@+id/profile_image"
-                android:layout_toRightOf="@+id/profile_image"
                 android:layout_gravity="center_horizontal"
                 android:shadowColor="#47c0ee"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="50"/>
+                android:shadowRadius="50"
+                android:layout_marginTop="5dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:id="@+id/detHolder">
 
         </LinearLayout>
@@ -85,7 +84,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/profile_image"
-                android:layout_alignParentBottom="true" />
+                android:layout_alignParentBottom="true"
+                android:touchscreenBlocksFocus="false"
+                android:transitionGroup="false" />
         </LinearLayout>
     </LinearLayout>
 
