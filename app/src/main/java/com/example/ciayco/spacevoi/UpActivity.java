@@ -114,7 +114,14 @@ public class UpActivity extends AppCompatActivity {
         });
 
 
-
+        //Pool İndir Buton
+        final Button indir = (Button)findViewById(R.id.indirbut);
+        indir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                us.Poolcek(getApplicationContext());
+            }
+        });
 
 
 
