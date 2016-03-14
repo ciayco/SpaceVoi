@@ -24,7 +24,7 @@
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:id="@+id/profile_image"
-                android:src="@mipmap/profile_white"
+                android:src="@mipmap/profil"
                 app:civ_border_width="3dp"
                 app:civ_border_color="#80ffffff"
                 android:background="#00ffffff"
@@ -46,22 +46,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:id="@+id/login_user"
-                android:textColor="#ffffff"
+                android:textColor="#f0ff7f"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                android:layout_alignTop="@+id/profile_image"
+                android:layout_toRightOf="@+id/profile_image"
                 android:layout_gravity="center_horizontal"
-                android:shadowColor="#47c0ee"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="50"
-                android:layout_marginTop="5dp" />
+                android:shadowColor="#dafdf9"
+                android:shadowDx="1.0"
+                android:shadowDy="1.0"
+                android:shadowRadius="25.0"
+                android:layout_marginTop="5dp"
+                android:singleLine="false" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="51dp"
+            android:layout_height="60dp"
             android:id="@+id/detHolder">
 
         </LinearLayout>
@@ -85,8 +88,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/profile_image"
                 android:layout_alignParentBottom="true"
-                android:touchscreenBlocksFocus="false"
-                android:transitionGroup="false" />
+                />
         </LinearLayout>
     </LinearLayout>
 

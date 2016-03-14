@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -85,6 +86,8 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
     TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
     child_textview.setText(child_title);
     child_textview.setTextColor(Color.parseColor("#bdbdbd"));
+        ProgressBar deneme =(ProgressBar) convertView.findViewById(R.id.progressBarr);
+        deneme.setProgress(78);
         return convertView;
     }
 
