@@ -10,14 +10,19 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.TextHttpResponseHandler;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -27,8 +32,8 @@ public class UpDownSınıf {
     //region Tanımlamalar
 
     String indirilecekDosyaAdresi = "http://www.spacevoice.tk/kayitlar/Gokhan/Gokhan1456281058671.amr";
+    String poolindirmeAdresi = "http://www.spacevoice.tk/pool.txt";
     static String dosyakayityeri = Environment.getExternalStorageDirectory().getAbsolutePath();
-    static String yol;
     static int size;
 
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
@@ -92,7 +97,7 @@ public class UpDownSınıf {
 
                     size = (int)file.length();
                     OutputStream yenidosya = new FileOutputStream(dosyakayityeri);
-                    pump(dosya,yenidosya,size,ctxx);
+                    pump(dosya, yenidosya, size, ctxx);
                 }
                 catch (FileNotFoundException e){
                     mesajGoster(ctxx,"Dosya Bulunamadı");
@@ -111,8 +116,70 @@ public class UpDownSınıf {
 //endregion
 
 
+    //region Pool çek
+
+    public void Poolcek(final Context ctxpool) {
+
+        dosyakayityeri += "/SpaceVoi/pool/pool.txt";
+
+        client.get(poolindirmeAdresi, new FileAsyncHttpResponseHandler(ctxpool) {
+
+
+            @Override
+            public void onSuccess(int i, Header[] headers, File file) {
+
+                try {
+
+                    InputStream dosya = new FileInputStream(file);
+
+                    size = (int) file.length();
+                    OutputStream yenidosya = new FileOutputStream(dosyakayityeri);
+                    pump(dosya, yenidosya, size, ctxpool);
+                    mesajGoster(ctxpool, "Dosya Kaydedildi");
+                } catch (FileNotFoundException e) {
+                    mesajGoster(ctxpool, "Dosya Bulunamadı");
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(int i, Header[] headers, Throwable throwable, File file) {
+                mesajGoster(ctxpool, "Dosya indirilemedi");
+            }
+        });
+
+    }
+
+
+    //endregion
+
+
+    //region deneme string cekme....!!!!!!
+
+    public void StringCek(){
+
+            params.put("pool", "pool");
+
+        client.post(uploadAdresi, params, new TextHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, String x) {
+
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, String x, Throwable throwable) {
+
+            }
+        });
+    }
+
+//endregion
+
+//region binary yazma ve txt okuma
 
     public void pump(InputStream in, OutputStream out, int size,Context ctxx) {
+        //indirilen dosyayı yeniden yazma
         byte[] buffer = new byte[4096];
         int done = 0;
         while (done < size) {
@@ -123,13 +190,40 @@ public class UpDownSınıf {
             }
             catch (IOException e)
             {
-                mesajGoster(ctxx,"burda hata var");
+                mesajGoster(ctxx,"Okuma Yazma Hatası");
             }
 
 
         }
 
     }
+
+    //Pool txt dosyasını okuma ve array e çekme
+
+ public  String[] pooloku(Context ctxxx){
+     String str;
+     List<String> list = new ArrayList<String>();
+     dosyakayityeri += "/SpaceVoi/pool/pool.txt";
+     try {
+         BufferedReader in = new BufferedReader(new FileReader(dosyakayityeri));
+         while ((str = in.readLine()) != null) {
+             list.add(str);
+         }
+     }
+     catch (FileNotFoundException f){
+         mesajGoster(ctxxx,"Dosya Bulunamadı pool");
+     }
+
+     catch (IOException e)
+     {
+         mesajGoster(ctxxx,"Pool okunamadı");
+     }
+    String[] stringArr = list.toArray(new String[0]);
+
+     return stringArr;
+ }
+
+    //endregion
 
 
 

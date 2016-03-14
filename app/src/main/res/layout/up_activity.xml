@@ -33,8 +33,9 @@
         android:textColor="#ffbb00"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/kaydetbut"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -45,5 +46,13 @@
         android:layout_alignTop="@+id/kaydetbut"
         android:layout_alignRight="@+id/login_user"
         android:layout_alignEnd="@+id/login_user" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pool Buton"
+        android:id="@+id/indirbut"
+        android:layout_above="@+id/login_user"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
