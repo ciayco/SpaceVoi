@@ -24,7 +24,7 @@
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:id="@+id/profile_image"
-                android:src="@mipmap/profil"
+                android:src="@mipmap/profile_white"
                 app:civ_border_width="3dp"
                 app:civ_border_color="#80ffffff"
                 android:background="#00ffffff"
