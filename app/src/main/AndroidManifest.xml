@@ -36,7 +36,9 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/kayit_yazi"></activity>
+            android:label="@string/kayit_yazi">
+
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

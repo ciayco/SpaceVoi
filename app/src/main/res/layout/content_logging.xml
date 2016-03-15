@@ -21,7 +21,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="80dp"
             android:id="@+id/topBar"
             android:layout_weight="0"
             android:visibility="invisible">
@@ -88,7 +88,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/loginButtonHolder"
             android:longClickable="false">
@@ -99,7 +99,7 @@
                 android:id="@+id/ibLogin"
                 android:background="#00ffffff"
                 android:src="@mipmap/loginbuton"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:layout_marginTop="10dp" />
         </LinearLayout>
 
@@ -117,9 +117,11 @@
                 android:text="Forgot your password?"
                 android:id="@+id/labForgotpass"
                 android:textColor="#ffbb00"
-                android:layout_weight="1"
                 android:layout_marginTop="10dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:singleLine="true"
+                android:layout_weight="1" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -127,11 +129,12 @@
                 android:text="Sign up now!"
                 android:id="@+id/labSignup"
                 android:textColor="#ffbb00"
-                android:layout_weight="1"
                 android:gravity="right"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
-                android:onClick="registeractivty" />
+                android:onClick="registeractivty"
+                android:textSize="16sp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -142,23 +145,42 @@
             android:background="#00ffffff">
 
 
-            <ImageView
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton2"
                 android:src="@mipmap/gplusicon"
-                android:scaleType="fitXY"
                 android:clickable="false"
                 android:background="#00ffffff"
-                android:paddingLeft="20dp" />
+                android:layout_weight="1" />
 
             <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/imageButton3"
-                android:src="@mipmap/gplusicon"
-                android:background="#00ffffff" />
+                android:src="@mipmap/fbicon"
+                android:background="#00ffffff"
+                android:layout_gravity="right"
+                android:layout_weight="1" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="SpaceVoi™"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
