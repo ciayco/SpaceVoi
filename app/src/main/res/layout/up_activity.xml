@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector_kaydet"
-        android:text="Kaydet"
+        android:text="@string/kaydet"
         android:id="@+id/kaydetbut"
         android:layout_marginBottom="29dp"
         android:layout_alignParentBottom="true"
@@ -35,15 +35,14 @@
         android:textColor="#ffbb00"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_above="@+id/kaydetbut"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="38dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector_gonder"
-        android:text="Gönder"
+        android:text="@string/gonder"
         android:id="@+id/gonderbut"
         android:layout_alignTop="@+id/kaydetbut"
         android:layout_alignRight="@+id/login_user"
@@ -54,7 +53,65 @@
         android:layout_height="wrap_content"
         android:text="Pool Buton"
         android:id="@+id/indirbut"
-        android:layout_above="@+id/login_user"
+        android:layout_below="@+id/login_user"
         android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:weightSum="1"
+        android:id="@+id/radioGroup"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="Male"
+            android:id="@+id/radioButton"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/radioButton2"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textSize="25dp"
+            android:layout_weight="0.13" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:weightSum="1"
+        android:id="@+id/radioGroup2"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="English"
+            android:id="@+id/radioButton3"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Türkçe"
+            android:id="@+id/radioButton4"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:textSize="25dp"
+            android:layout_weight="0.13" />
+    </RadioGroup>
 
 </RelativeLayout>

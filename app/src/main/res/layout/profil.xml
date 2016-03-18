@@ -28,9 +28,6 @@
                 app:civ_border_width="3dp"
                 app:civ_border_color="#80ffffff"
                 android:background="#00ffffff"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
@@ -65,8 +62,25 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:id="@+id/detHolder">
+            android:id="@+id/detHolder"
+            android:paddingTop="5dp">
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="890 followers"
+                android:id="@+id/textView"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:paddingEnd="7dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="384 likes"
+                android:id="@+id/textView2"
+                android:layout_weight="1"
+                android:paddingStart="30dp" />
         </LinearLayout>
 
         <LinearLayout

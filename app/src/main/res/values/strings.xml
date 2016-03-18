@@ -11,6 +11,8 @@
     <string name="kayit_yazi">Kayıt</string>
     <string name="sign_up">Kayıt ol</string>
     <string name="profil">Profil</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="gonder">Gönder</string>
     <string name="title_activity_ayarlar">Ayarlar</string>
 
     <!-- Strings related to Settings -->

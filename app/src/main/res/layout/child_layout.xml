@@ -45,8 +45,7 @@
         android:layout_gravity="right"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/play_button"
-        android:layout_toStartOf="@+id/play_button"
-     />
+        android:layout_toStartOf="@+id/play_button" />
 
 
 

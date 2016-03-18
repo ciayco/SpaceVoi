@@ -98,7 +98,7 @@
             android:longClickable="false">
 
             <ImageButton
-                android:layout_width="340dp"
+                android:layout_width="fill_parent"
                 android:layout_height="70dp"
                 android:id="@+id/ibLogin"
                 android:background="#00ffffff"
