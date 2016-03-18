@@ -11,7 +11,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.ciayco.spacevoi.LoginActivity"
     tools:showIn="@layout/activity_login"
-    android:background="@mipmap/background">
+    android:background="@drawable/bg_gradient">
+    <!--android:background="@mipmap/background#76093f74"!-->
+    <!--android:background="@drawable/btn_selector_kaydet"-->
 
     <LinearLayout
         android:orientation="vertical"
@@ -45,7 +47,7 @@
                 android:id="@+id/etUsername"
                 android:hint="Username / Email Adress"
                 android:textColor="#ffffff"
-                android:foreground="#50f5f5f5"
+                android:foreground="#20ffffff"
                 android:textColorHint="#80ffffff"
                 android:paddingLeft="20dp"
                 android:text="gokhan" />
@@ -57,7 +59,7 @@
                 android:id="@+id/etPassword"
                 android:hint="Password"
                 android:textColor="#ffffff"
-                android:foreground="#50f5f5f5"
+                android:foreground="#20f5f5f5"
                 android:layout_marginTop="10dp"
                 android:textColorHint="#80ffffff"
                 android:textIsSelectable="false"
@@ -78,11 +80,13 @@
                 android:layout_height="fill_parent"
                 android:text="Remember Me"
                 android:id="@+id/cbRememberMe"
-                android:textColor="#80ffffff"
-                android:layout_marginTop="10dp"
+                android:textColor="#90ffffff"
+                android:layout_marginTop="5dp"
                 android:allowUndo="false"
                 android:checked="false"
-                android:enabled="false" />
+                android:enabled="false"
+                android:buttonTint="#90ffffff"
+                android:clickable="true" />
 
         </LinearLayout>
 
@@ -94,13 +98,14 @@
             android:longClickable="false">
 
             <ImageButton
-                android:layout_width="fill_parent"
+                android:layout_width="340dp"
                 android:layout_height="70dp"
                 android:id="@+id/ibLogin"
                 android:background="#00ffffff"
                 android:src="@mipmap/loginbuton"
-                android:scaleType="fitCenter"
-                android:layout_marginTop="10dp" />
+                android:scaleType="fitXY"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
@@ -172,15 +177,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal|bottom"
-        android:text="SpaceVoi™"
-        android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
