@@ -23,10 +23,11 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="20dp"
             android:id="@+id/topBar"
             android:layout_weight="0"
-            android:visibility="invisible">
+            android:visibility="invisible"
+            android:layout_marginTop="80dp">
 
         </LinearLayout>
 
@@ -36,7 +37,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/textFieldHolder"
             android:layout_weight="0"
-            android:paddingTop="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp">
 
@@ -70,9 +70,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="10dp"
             android:id="@+id/checkBoxHolder"
-            android:layout_marginTop="5dp"
             android:baselineAligned="false">
 
             <CheckBox
@@ -81,12 +80,12 @@
                 android:text="Remember Me"
                 android:id="@+id/cbRememberMe"
                 android:textColor="#90ffffff"
-                android:layout_marginTop="5dp"
                 android:allowUndo="false"
                 android:checked="false"
                 android:enabled="false"
                 android:buttonTint="#90ffffff"
-                android:clickable="true" />
+                android:clickable="true"
+                android:visibility="invisible" />
 
         </LinearLayout>
 
@@ -95,78 +94,96 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/loginButtonHolder"
-            android:longClickable="false">
+            android:longClickable="false"
+            android:layout_marginTop="5dp">
 
             <ImageButton
-                android:layout_width="fill_parent"
+                android:layout_width="380dp"
                 android:layout_height="70dp"
                 android:id="@+id/ibLogin"
                 android:background="#00ffffff"
                 android:src="@mipmap/loginbuton"
-                android:scaleType="fitXY"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal" />
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:saveEnabled="true"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:id="@+id/optionsHolder"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Forgot your password?"
                 android:id="@+id/labForgotpass"
-                android:textColor="#ffbb00"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
+                android:textColor="#ffc119"
                 android:textSize="16dp"
                 android:singleLine="true"
-                android:layout_weight="1" />
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold" />
+            <!--ffbb00!-->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="--------  or  --------"
+                android:id="@+id/textView3"
+                android:textColor="#ffc119"
+                android:textStyle="italic"
+                android:textSize="16dp"
+                android:singleLine="true"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign up now!"
                 android:id="@+id/labSignup"
-                android:textColor="#ffbb00"
-                android:gravity="right"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
+                android:textColor="#ffc119"
                 android:onClick="registeractivty"
                 android:textSize="16sp"
-                android:layout_weight="1" />
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="100dp"
             android:id="@+id/iconHolder"
             android:visibility="visible"
-            android:background="#00ffffff">
+            android:background="#00ffffff"
+            android:layout_marginTop="10dp">
 
 
             <ImageButton
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton2"
-                android:src="@mipmap/gplusicon"
+                android:src="@mipmap/googlelogin"
                 android:clickable="false"
                 android:background="#00ffffff"
-                android:layout_weight="1" />
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/imageButton3"
-                android:src="@mipmap/fbicon"
+                android:src="@mipmap/googleloginpressed"
                 android:background="#00ffffff"
-                android:layout_gravity="right"
-                android:layout_weight="1" />
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY" />
         </LinearLayout>
 
         <LinearLayout

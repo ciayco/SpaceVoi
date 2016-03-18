@@ -18,13 +18,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_selector_kaydet"
-        android:text="@string/kaydet"
+        android:background="@mipmap/micrecord"
         android:id="@+id/kaydetbut"
-        android:layout_marginBottom="29dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/login_user"
-        android:layout_alignStart="@+id/login_user" />
+        android:layout_above="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="110dp" />
 
 
     <TextView
@@ -44,26 +42,26 @@
         android:background="@drawable/btn_selector_gonder"
         android:text="@string/gonder"
         android:id="@+id/gonderbut"
-        android:layout_alignTop="@+id/kaydetbut"
-        android:layout_alignRight="@+id/login_user"
-        android:layout_alignEnd="@+id/login_user" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pool Buton"
         android:id="@+id/indirbut"
-        android:layout_below="@+id/login_user"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/gonderbut"
+        android:layout_toEndOf="@+id/gonderbut" />
 
     <RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="90dp"
         android:weightSum="1"
         android:id="@+id/radioGroup"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/gonderbut">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -85,33 +83,15 @@
             android:layout_weight="0.13" />
     </RadioGroup>
 
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="90dp"
-        android:weightSum="1"
-        android:id="@+id/radioGroup2"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click to start recording"
+        android:id="@+id/textView4"
+        android:textStyle="italic"
+        android:textSize="13dp"
+        android:layout_alignBottom="@+id/kaydetbut"
+        android:layout_centerHorizontal="true"/>
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:text="English"
-            android:id="@+id/radioButton3"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:textSize="25sp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Türkçe"
-            android:id="@+id/radioButton4"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:textSize="25sp"
-            android:layout_weight="0.13" />
-    </RadioGroup>
 
 </RelativeLayout>
