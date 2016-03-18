@@ -80,7 +80,8 @@
                 android:text="384 likes"
                 android:id="@+id/textView2"
                 android:layout_weight="1"
-                android:paddingStart="30dp" />
+                android:paddingStart="30dp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
