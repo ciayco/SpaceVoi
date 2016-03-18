@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     //region Tanımlamalar
 
-    UpDownSınıf us = new UpDownSınıf();
-    KaydetCalSınıf ka = new KaydetCalSınıf();
-    static String loggedUser ;
-    static String kayitkodu;
-    static String link;
+    String loggedUser ;
 
+    HashMap<String, List<String>> Movies_category;
+    List<String> Movies_list;
+    ExpandableListView Exp_list;
+    ListAdapterSınıf adapter;
 
     //endregion
 
@@ -68,7 +70,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //region listviewçekme
+        Exp_list = (ExpandableListView) findViewById(R.id.poolListView);
+        Movies_category = KayıtlarSınıf.getInfoPoolKayıtları(getApplicationContext());
+        Movies_list = new ArrayList<>(Movies_category.keySet());
+        adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
+        Exp_list.setAdapter(adapter);
+        //endregion
 
         //region Login
         Intent intent = getIntent();
