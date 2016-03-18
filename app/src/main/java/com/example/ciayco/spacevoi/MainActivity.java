@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //region Tanımlamalar
+
     UpDownSınıf us = new UpDownSınıf();
     KaydetCalSınıf ka = new KaydetCalSınıf();
     static String loggedUser ;

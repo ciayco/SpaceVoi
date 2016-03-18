@@ -2,7 +2,6 @@ package com.example.ciayco.spacevoi;
 
 import android.content.Context;
 import android.os.Environment;
-import android.support.v4.util.Pools;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -52,30 +54,18 @@ public class ProfilActivity extends AppCompatActivity {
 
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
-        Movies_category = KayıtlarSınıf.getInfoPoolKayıtları(getApplicationContext());
+        Movies_category = KayıtlarSınıf.getInfoKayıtlarım();
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);
         //endregion
 
-        //region Listview click
-        Exp_list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-                // TODO Auto-generated method stub
 
-                link = adapter.getChildData(groupPosition, childPosition);
-                if (ka.playerkontrol()) {
-                    ka.startPlaying(link);
-                } else
-                    ka.stopPlaying();
-                return false;
 
-            }
-        });
-        //endregion
+
+
+
 
     }
 }

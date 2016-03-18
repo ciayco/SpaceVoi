@@ -109,7 +109,8 @@ public class UpActivity extends AppCompatActivity {
         gonder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
+               us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
+
             }
         });
 

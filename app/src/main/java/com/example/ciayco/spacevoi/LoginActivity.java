@@ -3,12 +3,9 @@ package com.example.ciayco.spacevoi;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -58,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText)findViewById(R.id.etUsername);
         password = (EditText)findViewById(R.id.etPassword);
         ImageButton loginButton = (ImageButton)findViewById(R.id.ibLogin);
-        /*Button registerButton = (Button)findViewById(R.id.labSignup);*/
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

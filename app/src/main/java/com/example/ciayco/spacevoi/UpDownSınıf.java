@@ -38,7 +38,7 @@ public class UpDownSınıf {
 
     // dosya sunucuya gönderilirken (upload) hangi adres kullanılacak
     String uploadAdresi = "http://www.spacevoice.tk/upload.php";
-
+    String begenAdresi = "http://www.spacevoice.tk/begen.php";
     // get ve post işlemleri yapacağımız AsyncHttpClient nesnesi
     final AsyncHttpClient client = new AsyncHttpClient();
     // dosya gönderirken dosyayı iliştireceğimiz nesne.
@@ -89,18 +89,17 @@ public class UpDownSınıf {
 
 
             @Override
-            public void onSuccess(int i, Header[] headers,File file) {
+            public void onSuccess(int i, Header[] headers, File file) {
 
                 try {
 
                     InputStream dosya = new FileInputStream(file);
 
-                    size = (int)file.length();
+                    size = (int) file.length();
                     OutputStream yenidosya = new FileOutputStream(dosyakayityeri);
                     pump(dosya, yenidosya, size, ctxx);
-                }
-                catch (FileNotFoundException e){
-                    mesajGoster(ctxx,"Dosya Bulunamadı");
+                } catch (FileNotFoundException e) {
+                    mesajGoster(ctxx, "Dosya Bulunamadı");
                 }
 
             }
@@ -159,7 +158,7 @@ public class UpDownSınıf {
 
     public void StringCek(){
 
-            params.put("pool", "pool");
+            params.put("like", "like");
 
         client.post(uploadAdresi, params, new TextHttpResponseHandler() {
             @Override
@@ -176,7 +175,8 @@ public class UpDownSınıf {
 
 //endregion
 
-//region binary yazma ve txt okuma
+
+    //region binary yazma ve txt okuma
 
     public void pump(InputStream in, OutputStream out, int size,Context ctxx) {
         //indirilen dosyayı yeniden yazma
@@ -195,7 +195,13 @@ public class UpDownSınıf {
 
 
         }
-
+        try {
+            in.close();
+            out.close();
+        }
+        catch (IOException ex){
+            mesajGoster(ctxx,"Kapama hatası");
+        }
     }
 
     //Pool txt dosyasını okuma ve array e çekme
@@ -216,13 +222,41 @@ public class UpDownSınıf {
 
      catch (IOException e)
      {
-         mesajGoster(ctxxx,"Pool okunamadı");
+         mesajGoster(ctxxx, "Pool okunamadı");
      }
     String[] stringArr = list.toArray(new String[0]);
 
      return stringArr;
  }
 
+    //endregion
+
+
+    //region Begen
+
+    public void Begen(String kayitkodu,String durum) {
+
+
+
+            params.put("kayitadi", kayitkodu);
+            params.put("durum", durum);
+
+        client.post(begenAdresi, params, new AsyncHttpResponseHandler() {
+
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+
+            }
+
+
+        });
+    }
     //endregion
 
 

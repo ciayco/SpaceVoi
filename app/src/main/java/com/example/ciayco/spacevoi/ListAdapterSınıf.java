@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -75,10 +77,11 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
 
         return convertView;
     }
-
+    KaydetCalSınıf ka = new KaydetCalSınıf();
+    UpDownSınıf us = new UpDownSınıf();
     @Override
     public View getChildView(int parent, int child, boolean lastChild, View convertView, ViewGroup parentview) {
-        String child_title = (String) getChild(parent, child);
+        final String child_title = (String) getChild(parent, child);
         if(convertView == null){
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflator.inflate(R.layout.child_layout, parentview,false);
@@ -86,8 +89,37 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
     TextView child_textview = (TextView) convertView.findViewById(R.id.child_txt);
     child_textview.setText(child_title);
     child_textview.setTextColor(Color.parseColor("#bdbdbd"));
-        ProgressBar deneme =(ProgressBar) convertView.findViewById(R.id.progressBarr);
-        deneme.setProgress(78);
+
+        //region "Cal Buton
+        ImageButton calbut =
+                (ImageButton)convertView.findViewById( R.id.play_button);
+        calbut.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if (ka.playerkontrol()) {
+                            ka.startPlaying(child_title);
+                        } else
+                            ka.stopPlaying();
+                    }
+                });
+        //endregion
+
+
+        //region "Like Buton
+
+        ImageButton likebut =
+                (ImageButton)convertView.findViewById( R.id.like_button);
+        likebut.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        String durum = "begeni";
+                        us.Begen(child_title,durum);
+                    }
+                });
+
+        //endregion
+
         return convertView;
     }
 
