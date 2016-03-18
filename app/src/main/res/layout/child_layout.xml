@@ -3,20 +3,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:paddingStart="30dp"
+    android:paddingEnd="20dp">
 
     <TextView
         android:id="@+id/child_txt"
         android:paddingTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/like_button"
-        android:layout_toStartOf="@+id/like_button" />
+        android:layout_toStartOf="@+id/like_button"
+        android:text="gokan 12345"
+        android:singleLine="false"
+        android:phoneNumber="false"
+        android:password="false"
+        android:layout_marginLeft="5dp" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="181dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:id="@+id/sesprogress"
         android:progress="0"
@@ -31,10 +37,9 @@
         android:id="@+id/play_button"
         android:layout_gravity="right"
         android:background="@mipmap/playbutton"
-        android:layout_alignBottom="@+id/sesprogress"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-      />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/sesprogress"
+        android:layout_toEndOf="@+id/sesprogress" />
 
 
     <ImageButton
@@ -43,9 +48,10 @@
         android:id="@+id/like_button"
         android:background="@mipmap/likebutton"
         android:layout_gravity="right"
+        android:soundEffectsEnabled="false"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/play_button"
-        android:layout_toStartOf="@+id/play_button" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 
