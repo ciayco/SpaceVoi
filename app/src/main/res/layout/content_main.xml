@@ -25,7 +25,7 @@
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-    
+
     <ExpandableListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"

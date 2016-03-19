@@ -1,11 +1,14 @@
 package com.example.ciayco.spacevoi;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -40,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     protected String enteredUsername;
     private final String serverUrl = "http://www.spacevoice.tk/index.php";
-
+    static String anan;
 
     public void registeractivty(View v) {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -51,6 +54,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+        int kontrolk = preferences.getInt("Kontrol", 0);
+        String kullanicik = preferences.getString("Kullanıcı","N/A");
+        if (kontrolk == 1){
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("USERNAME", kullanicik);
+            startActivity(intent);
+            finish();
+        }
+
+
 
         username = (EditText)findViewById(R.id.etUsername);
         password = (EditText)findViewById(R.id.etPassword);
@@ -130,7 +144,11 @@ public class LoginActivity extends AppCompatActivity {
             if(jsonResult == 1){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("USERNAME", enteredUsername);
-                intent.putExtra("MESSAGE", "You have been successfully login");
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("Kontrol", 1);
+                editor.putString("Kullanıcı", enteredUsername);
+                editor.apply();
                 startActivity(intent);
                 finish();
             }

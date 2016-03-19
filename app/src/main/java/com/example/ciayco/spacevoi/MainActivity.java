@@ -3,7 +3,9 @@ package com.example.ciayco.spacevoi;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,10 +62,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        else if (id==R.id.cikis)
+        {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("Kontrol",0);
+            editor.apply();
+            startActivity(intent);
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
         //endregion
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
