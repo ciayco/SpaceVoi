@@ -97,9 +97,10 @@ public class UpActivity extends AppCompatActivity {
                     kayitkodu = loggedUser + damga;
                     ka.startRecording(kayitkodu);
                     kayit.setText("Kaydediliyor");
+                    kayit.setPressed(true);
                 } else {
                     ka.stopRecording();
-                    kayit.setText("Kaydet");
+
                 }
             }
         });
