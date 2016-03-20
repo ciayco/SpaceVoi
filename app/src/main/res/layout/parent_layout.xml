@@ -6,7 +6,11 @@
     <TextView
         android:id="@+id/parent_txt"
         android:textColor="#fe9900"
-        android:paddingTop="10dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="ses kayitlari"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:singleLine="false"/>
 </LinearLayout>
