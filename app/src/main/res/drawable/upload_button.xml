@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:state_pressed="true"
+        android:state_activated="true"
         android:drawable="@mipmap/micrecording" />
     <item
+        android:state_activated="false"
         android:drawable="@mipmap/micrecord" />
 </selector>

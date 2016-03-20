@@ -1,12 +1,14 @@
 package com.example.ciayco.spacevoi;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -76,7 +78,7 @@ public class UpActivity extends AppCompatActivity {
         loggedUser = loggedUser.substring(0,1).toUpperCase()+ loggedUser.substring(1);
 
         final TextView loginUsername = (TextView)findViewById(R.id.login_user);
-
+        final TextView recText = (TextView)findViewById(R.id.recText);
         loginUsername.setText("Hoşgeldin " + loggedUser);
 
         //endregion
@@ -86,7 +88,7 @@ public class UpActivity extends AppCompatActivity {
 
 
         //Kaydet Click
-        final Button kayit = (Button)findViewById(R.id.kaydetbut);
+        final ImageButton kayit = (ImageButton)findViewById(R.id.kaydetbut);
 
         kayit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,11 +98,12 @@ public class UpActivity extends AppCompatActivity {
                     String damga = Long.toString(zaman.getTime());
                     kayitkodu = loggedUser + damga;
                     ka.startRecording(kayitkodu);
-                    kayit.setText("Kaydediliyor");
-                    kayit.setPressed(true);
+                    kayit.setActivated(true);
+                    recText.setText("Kaydediliyor");
                 } else {
                     ka.stopRecording();
-
+                    kayit.setActivated(false);
+                    recText.setText("Kayıt için tıklayın..");
                 }
             }
         });
@@ -111,7 +114,6 @@ public class UpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
-
             }
         });
 

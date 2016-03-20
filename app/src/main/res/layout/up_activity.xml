@@ -18,7 +18,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/micrecord"
+        android:background="@drawable/upload_button"
         android:id="@+id/kaydetbut"
         android:layout_above="@+id/radioGroup"
         android:layout_centerHorizontal="true"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="click to start recording"
-        android:id="@+id/textView4"
+        android:id="@+id/recText"
         android:textStyle="italic"
         android:textSize="13dp"
         android:layout_alignBottom="@+id/kaydetbut"

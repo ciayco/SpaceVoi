@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.poolListView);
         Movies_category = KayıtlarSınıf.getInfoPoolKayıtları(getApplicationContext());

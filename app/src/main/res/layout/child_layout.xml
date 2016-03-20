@@ -5,7 +5,9 @@
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants"
     android:paddingStart="30dp"
-    android:paddingEnd="20dp">
+    android:paddingLeft="30dp"
+    android:paddingEnd="20dp"
+    android:paddingRight="30dp">
 
     <TextView
         android:id="@+id/child_txt"
