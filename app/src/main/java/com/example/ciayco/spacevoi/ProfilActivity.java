@@ -54,7 +54,7 @@ public class ProfilActivity extends AppCompatActivity {
 
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
-        Movies_category = KayıtlarSınıf.getInfoKayıtlarım();
+        Movies_category = KayıtlarSınıf.getInfoKayıtlarım(getApplicationContext());
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);

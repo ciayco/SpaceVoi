@@ -32,10 +32,9 @@ public class UpDownSınıf {
 
     //region Tanımlamalar
 
-    String indirilecekDosyaAdresi = "http://www.spacevoice.tk/kayitlar/Gokhan/Gokhan.amr";
-    String poolindirmeAdresi = "http://www.spacevoice.tk/kayitlar/pool.txt";
-    String poolkayityeri = Environment.getExternalStorageDirectory().getAbsolutePath()+"/SpaceVoi/pool/pool.txt";
-    String dosyakayityeri = Environment.getExternalStorageDirectory().getAbsolutePath()+"/SpaceVoi/pool/Gokhan.amr";
+
+    String poolindirmeAdresi = "http://www.spacevoice.tk/pool/pool.txt";
+
 
     int size;
 
@@ -53,7 +52,7 @@ public class UpDownSınıf {
     //region Dosya Gönder
 
     public void DosyaGonder(final Context ctx,String kullanici,String kayitkodu) {
-        String dosyaKayitYeri = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/SpaceVoi/" +kayitkodu+ ".amr";
+        String dosyaKayitYeri = ctx.getExternalCacheDir().getPath()+ "/Profil/" +kayitkodu+ ".amr";
         File file = new File(dosyaKayitYeri);
         try {
             params.put("dosya", file);
@@ -84,9 +83,9 @@ public class UpDownSınıf {
 
     //region Dosya İndir
 
-    public void DosyaIndir(final Context ctxx) {
+    public void DosyaIndir(final Context ctxx,final String klasor,final String dosya) {
 
-
+        String indirilecekDosyaAdresi = "http://www.spacevoice.tk/pool/" + dosya;
         client.get(indirilecekDosyaAdresi, new FileAsyncHttpResponseHandler(ctxx) {
 
 
@@ -94,14 +93,14 @@ public class UpDownSınıf {
             public void onSuccess(int i, Header[] headers, File file) {
 
                 try {
-
+                    String dosyakayityeri = ctxx.getExternalCacheDir().getPath() + "/" + klasor + "/" + dosya;
                     FileInputStream dosya = new FileInputStream(file);
 
                     size = (int) file.length();
                     FileOutputStream yenidosya = new FileOutputStream(dosyakayityeri);
                     pump(dosya, yenidosya, size, ctxx);
                 } catch (FileNotFoundException e) {
-                    mesajGoster(ctxx, e.getMessage());
+                    mesajGoster(ctxx, "Dosya Bulunamadı");
                 }
 
             }
@@ -130,13 +129,11 @@ public class UpDownSınıf {
             public void onSuccess(int i, Header[] headers, File file) {
 
                 try {
-
+                    String poolkayityeri = ctxpool.getExternalCacheDir().getPath() + "/pool.txt";
                     InputStream dosya = new FileInputStream(file);
-
                     size = (int) file.length();
                     OutputStream yenidosya = new FileOutputStream(poolkayityeri);
                     pump(dosya, yenidosya, size, ctxpool);
-                    mesajGoster(ctxpool, "Dosya Kaydedildi");
                 } catch (FileNotFoundException e) {
                     mesajGoster(ctxpool, "Dosya Bulunamadı deneme");
                 }
@@ -192,10 +189,15 @@ public class UpDownSınıf {
             }
             catch (IOException e)
             {
-
                 mesajGoster(ctxx,"Okuma Yazma Hatası");
             }
 
+        }
+        try{
+            in.close();
+            out.close();
+        }
+        catch (IOException ee){
 
         }
 
@@ -208,13 +210,14 @@ public class UpDownSınıf {
      List<String> list = new ArrayList<String>();
 
      try {
+         String poolkayityeri = ctxxx.getExternalCacheDir().getPath()+"/pool.txt";
          BufferedReader in = new BufferedReader(new FileReader(poolkayityeri));
          while ((str = in.readLine()) != null) {
              list.add(str);
          }
      }
      catch (FileNotFoundException f){
-         mesajGoster(ctxxx,f.getMessage());
+         mesajGoster(ctxxx,"Yenile!");
      }
 
      catch (IOException e)

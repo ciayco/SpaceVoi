@@ -1,5 +1,6 @@
 package com.example.ciayco.spacevoi;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
@@ -16,9 +17,8 @@ public class KaydetCalSınıf {
     public MediaPlayer mPlayer = null;
 
 
-    public void startPlaying(String kullanici) {
-        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/SpaceVoi/"+kullanici;
+    public void startPlaying(String kullanici,Context ctx,String klasor) {
+        mFileName = ctx.getExternalCacheDir().getPath()+ "/"+klasor+"/"+kullanici;
         mPlayer = new MediaPlayer();
         try {
             mPlayer.setDataSource(mFileName);
@@ -48,9 +48,8 @@ public class KaydetCalSınıf {
             return false;
     }
 
-    public void startRecording(String kullanici) {
-        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/SpaceVoi/"+kullanici+".amr";
+    public void startRecording(String kullanici,Context ctxx) {
+        mFileName = ctxx.getExternalCacheDir().getPath()+ "/Profil/"+kullanici+".amr";
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);

@@ -1,8 +1,10 @@
 package com.example.ciayco.spacevoi;
 
+
 import android.content.Intent;
-import android.media.Image;
+
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 
 import java.util.Date;
 
@@ -97,7 +98,7 @@ public class UpActivity extends AppCompatActivity {
                     Date zaman = new Date();
                     String damga = Long.toString(zaman.getTime());
                     kayitkodu = loggedUser + damga;
-                    ka.startRecording(kayitkodu);
+                    ka.startRecording(kayitkodu,getApplicationContext());
                     kayit.setActivated(true);
                     recText.setText("Kaydediliyor");
                 } else {
@@ -107,6 +108,7 @@ public class UpActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         //Gönder Buton
         final Button gonder = (Button)findViewById(R.id.gonderbut);
@@ -118,14 +120,6 @@ public class UpActivity extends AppCompatActivity {
         });
 
 
-        //Pool İndir Buton
-        final Button indir = (Button)findViewById(R.id.indirbut);
-        indir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                us.Poolcek(getApplicationContext());
-            }
-        });
 
 
 

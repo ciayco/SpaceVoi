@@ -90,8 +90,8 @@
         android:id="@+id/recText"
         android:textStyle="italic"
         android:textSize="13dp"
-        android:layout_alignBottom="@+id/kaydetbut"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

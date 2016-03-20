@@ -29,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -55,6 +56,25 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+
+        int klasorkontrol = preferences.getInt("Klasor",0);
+                if(klasorkontrol==0){
+                    SharedPreferences.Editor editor = preferences.edit();
+                    getExternalCacheDir();
+                    File file = new File(getExternalCacheDir().getPath()+"/pool/");
+                    file.mkdir();
+                    File file2 = new File(getExternalCacheDir().getPath()+"/likes/");
+                    file2.mkdir();
+                    File file3 = new File(getExternalCacheDir().getPath()+"/profil/");
+                    file3.mkdir();
+                    editor.putInt("Klasor", 1);
+                    editor.apply();
+                }
+            getExternalCacheDir();
+            File file = new File(getExternalCacheDir().getPath()+"/deneme/");
+            file.mkdir();
+
+
         int kontrolk = preferences.getInt("Kontrol", 0);
         String kullanicik = preferences.getString("Kullanıcı","N/A");
         if (kontrolk == 1){

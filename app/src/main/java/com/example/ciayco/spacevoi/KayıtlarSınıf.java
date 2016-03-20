@@ -12,11 +12,10 @@ import java.util.List;
 public class KayıtlarSınıf {
     static UpDownSınıf pool = new UpDownSınıf();
 
-    public static HashMap<String, List<String>> getInfoKayıtlarım()
+    public static HashMap<String, List<String>> getInfoKayıtlarım(Context ctx)
     {
 
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
-        path += "/SpaceVoi";
+        String path = ctx.getExternalCacheDir().getPath()+ "/Profil";
         File f = new File(path);
         File file[] = f.listFiles();
 
@@ -39,12 +38,15 @@ public class KayıtlarSınıf {
     public static HashMap<String,List<String>> getInfoPoolKayıtları(Context ctx)
     {
         String[] str ;
+
         str = pool.pooloku(ctx);
+
         HashMap<String, List<String>> PoolSesKayitlari = new HashMap<String, List<String>>();
         List<String> PoolKayitlari = new ArrayList<String>();
 
         for(int i=0; i < str.length; i++) {
            PoolKayitlari.add(str[i]);
+            pool.DosyaIndir(ctx,"pool",str[i]);
         }
 
 

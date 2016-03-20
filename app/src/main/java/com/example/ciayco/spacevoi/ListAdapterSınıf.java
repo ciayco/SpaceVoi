@@ -77,10 +77,14 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
 
         return convertView;
     }
+
+
     KaydetCalSınıf ka = new KaydetCalSınıf();
     UpDownSınıf us = new UpDownSınıf();
+
+
     @Override
-    public View getChildView(int parent, int child, boolean lastChild, View convertView, ViewGroup parentview) {
+    public View getChildView(final int parent, int child, boolean lastChild, View convertView, ViewGroup parentview) {
         final String child_title = (String) getChild(parent, child);
         if(convertView == null){
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -90,6 +94,8 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
     child_textview.setText(child_title);
     child_textview.setTextColor(Color.parseColor("#bdbdbd"));
 
+
+
         //region "Cal Buton
         ImageButton calbut =
                 (ImageButton)convertView.findViewById( R.id.play_button);
@@ -97,7 +103,14 @@ public class ListAdapterSınıf extends BaseExpandableListAdapter{
                 new View.OnClickListener() {
                     public void onClick(View v) {
                         if (ka.playerkontrol()) {
-                            ka.startPlaying(child_title);
+                            String group_title = (String) getGroup(parent);
+                            String grup;
+                            if (group_title=="Pool Kayıtları")
+                                grup = "pool";
+                                else
+                                grup = "profil";
+
+                            ka.startPlaying(child_title,ctx,grup);
                         } else
                             ka.stopPlaying();
                     }

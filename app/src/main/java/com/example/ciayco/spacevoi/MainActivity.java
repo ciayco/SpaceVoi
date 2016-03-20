@@ -9,7 +9,11 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //region Tanımlamalar
-
+    UpDownSınıf pool = new UpDownSınıf();
     String loggedUser ;
 
     HashMap<String, List<String>> Movies_category;
@@ -80,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        pool.Poolcek(getApplicationContext());
+        final Animation animRotate = AnimationUtils.loadAnimation(this, R.anim.anim_rotate);
 
         //region listviewçekme
         Exp_list = (ExpandableListView) findViewById(R.id.poolListView);
@@ -88,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);
+        Exp_list.expandGroup(0);
         //endregion
 
         //region Login
@@ -97,16 +103,24 @@ public class MainActivity extends AppCompatActivity {
         loggedUser = loggedUser.toLowerCase();
         loggedUser = loggedUser.substring(0,1).toUpperCase()+ loggedUser.substring(1);
 
-        final TextView loginUsername = (TextView)findViewById(R.id.login_user);
 
-        loginUsername.setText("Hoşgeldin " + loggedUser);
 
         //endregion
 
 
         //region Butonlar
-
-
+        ImageButton btnyenile = (ImageButton)findViewById(R.id.yenile);
+        btnyenile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animRotate);
+                Movies_category = KayıtlarSınıf.getInfoPoolKayıtları(getApplicationContext());
+                Movies_list = new ArrayList<>(Movies_category.keySet());
+                adapter = new ListAdapterSınıf(getApplicationContext(), Movies_category, Movies_list);
+                Exp_list.setAdapter(adapter);
+                Exp_list.expandGroup(0);
+            }
+        });
 
         //endregion
 
