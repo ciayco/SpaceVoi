@@ -1,6 +1,2 @@
-# SpaceVoi
-first version
-
-
-SA world
+<center> # SpaceVoi
 <img src="http://i.imgur.com/uR5s5IQ.jpg" >
