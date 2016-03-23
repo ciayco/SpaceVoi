@@ -52,9 +52,9 @@
                 android:shadowColor="#dafdf9"
                 android:shadowDx="1.0"
                 android:shadowDy="1.0"
-                android:shadowRadius="25.0"
+                android:shadowRadius="20.0"
                 android:layout_marginTop="5dp"
-                android:singleLine="false" />
+                 />
 
         </LinearLayout>
 

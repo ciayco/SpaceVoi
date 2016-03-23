@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SpaceVoi</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="email">Email</string>
+    <string name="giris_yazi">SpaceVoi</string>
+    <string name="gonder">Gönder</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="kayit_yazi">Kayit Ol</string>
+    <string name="login">Giriş</string>
+    <string name="password">Şifre</string>
+    <string name="pref_header_data_sync">Data senk</string>
+    <string name="pref_header_general">Genel</string>
+    <string name="pref_header_notifications">Bildirimler</string>
+    <string name="pref_ringtone_silent">Sessiz</string>
+    <string name="pref_title_new_message_notifications">Yeni Mesaj Bildirimleri</string>
+    <string name="pref_title_ringtone">Zil Sesi</string>
+    <string name="pref_title_vibrate">Titreşim</string>
+    <string name="register_button">Kayıt Ol</string>
+    <string name="registration_instruction">Kullanıcı adı şifreniz yoksa. Kayıt ol butonuna tıklayın</string>
+    <string name="sign_up">Kayit ol</string>
+    <string name="title_activity_ayarlar">Ayarlar</string>
+    <string name="username">Kullanıcı Adı</string>
+</resources>

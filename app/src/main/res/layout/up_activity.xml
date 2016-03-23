@@ -20,9 +20,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/upload_button"
         android:id="@+id/kaydetbut"
-        android:layout_above="@+id/radioGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp" />
+        android:layout_above="@+id/recText"
+        android:layout_centerHorizontal="true" />
 
 
     <TextView
@@ -53,35 +52,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/gonderbut"
         android:layout_toEndOf="@+id/gonderbut" />
-
-    <RadioGroup
-        android:layout_width="fill_parent"
-        android:layout_height="90dp"
-        android:weightSum="1"
-        android:id="@+id/radioGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/gonderbut">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:text="Male"
-            android:id="@+id/radioButton"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:textSize="25sp" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:id="@+id/radioButton2"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:textSize="25sp"
-            android:layout_weight="0.13" />
-    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
