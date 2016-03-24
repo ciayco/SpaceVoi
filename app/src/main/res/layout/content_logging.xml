@@ -145,7 +145,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign up now!"
+                android:text="@string/signupnow"
                 android:id="@+id/labSignup"
                 android:textColor="#ffc119"
                 android:onClick="registeractivty"
