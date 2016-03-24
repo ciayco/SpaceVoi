@@ -84,6 +84,19 @@ public class UpActivity extends AppCompatActivity {
 
         //endregion
 
+        //region UploadPopUp
+        Button b = (Button) findViewById(R.id.popbutton);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UpActivity.this,PopUpActivity.class));
+            }
+
+        });
+
+        //endregion
+
 
         //region Butonlar
 

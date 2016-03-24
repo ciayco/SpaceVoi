@@ -55,6 +55,13 @@
             android:label="@string/profil">
 
         </activity>
+
+        <activity
+            android:name=".PopUpActivity"
+            android:theme="@style/AppTheme.CustomTheme2"
+            >
+        </activity>
+
     </application>
 
 </manifest>
