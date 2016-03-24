@@ -21,6 +21,6 @@ public class PopUpActivity extends Activity {
         int genislik = dm.widthPixels;
         int yukseklik= dm.heightPixels;
 
-        getWindow().setLayout((int)(genislik*.8),(int)(yukseklik*.8));
-    }
+        getWindow().setLayout((int)(genislik*.8),(int)(yukseklik*.4));
+        }
 }
