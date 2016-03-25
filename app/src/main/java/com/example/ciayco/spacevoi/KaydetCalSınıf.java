@@ -3,9 +3,10 @@ package com.example.ciayco.spacevoi;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -70,6 +71,15 @@ public class KaydetCalSınıf {
         mRecorder = null;
     }
 
+public  void sil(String kullanici,Context silctx){
+    File kayit = new File( silctx.getExternalCacheDir().getPath()+ "/Profil/"+kullanici+".amr");
+    kayit.delete();
+    mesajGoster(silctx, kullanici);
 
+}
+    public void mesajGoster(Context context,String mesaj) {
 
+        Toast.makeText(context, mesaj, Toast.LENGTH_LONG)
+                .show();
+    }
 }

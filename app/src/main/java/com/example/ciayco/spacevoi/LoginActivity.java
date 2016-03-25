@@ -8,7 +8,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -35,6 +34,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+
 /**
  * Created by ciayco on 18.2.2016.
  */
@@ -44,7 +45,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     protected String enteredUsername;
     private final String serverUrl = "http://www.spacevoice.tk/index.php";
-    static String anan;
+
+
+
+
 
     public void registeractivty(View v) {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
@@ -56,6 +60,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+
+
+
+
 
         int klasorkontrol = preferences.getInt("Klasor",0);
                 if(klasorkontrol==0){
