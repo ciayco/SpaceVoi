@@ -44,15 +44,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pool Buton"
-        android:id="@+id/indirbut"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/gonderbut"
-        android:layout_toEndOf="@+id/gonderbut" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
