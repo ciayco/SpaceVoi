@@ -55,6 +55,7 @@ public class ProfilActivity extends AppCompatActivity {
         Movies_list = new ArrayList<>(Movies_category.keySet());
         adapter = new ListAdapterSınıf(this, Movies_category, Movies_list);
         Exp_list.setAdapter(adapter);
+        Exp_list.expandGroup(0);
         //endregion
 
 

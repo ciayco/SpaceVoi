@@ -71,12 +71,20 @@ public class KaydetCalSınıf {
         mRecorder = null;
     }
 
-public  void sil(String kullanici,Context silctx){
+    public  void sil(String kullanici,Context silctx){
     File kayit = new File( silctx.getExternalCacheDir().getPath()+ "/Profil/"+kullanici+".amr");
     kayit.delete();
     mesajGoster(silctx, kullanici);
 
-}
+    }
+
+    public void isimdegistir(String eskiisim,String yeniisim,Context isctx){
+        File kayit = new File( isctx.getExternalCacheDir().getPath()+ "/Profil/"+ eskiisim +".amr");
+        kayit.renameTo(new File(isctx.getExternalCacheDir().getPath()+ "/Profil/"+ yeniisim +".amr"));
+    }
+
+
+
     public void mesajGoster(Context context,String mesaj) {
 
         Toast.makeText(context, mesaj, Toast.LENGTH_LONG)
