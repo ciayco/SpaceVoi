@@ -1,16 +1,24 @@
 package com.example.ciayco.spacevoi;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Date;
@@ -23,10 +31,13 @@ public class UpActivity extends AppCompatActivity {
     KaydetCalSınıf ka = new KaydetCalSınıf();
     static String loggedUser;
     static String kayitkodu;
-
-
-
     //endregion
+
+    private Button test;
+    private LayoutInflater layoutInflater;
+    private PopupWindow popupWindow;
+    private RelativeLayout relativeLayout;
+
 
 
     //region Ayarlar ve bar menu
@@ -66,10 +77,35 @@ public class UpActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.up_activity);
 
+        test = (Button) findViewById(R.id.popbutton);
+        relativeLayout = (RelativeLayout) findViewById(R.id.uploadlayout);
+        final TextView kayittext = (TextView)findViewById(R.id.kayitText);
+
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.pop_window,null);
+
+               // kayittext.setText(String.valueOf(popupWindow.getWidth()));
+                popupWindow = new PopupWindow(container,400,400,true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.CENTER,0,0);
+
+                kayittext.setText(String.valueOf(popupWindow.getWidth()));
+
+                container.setOnTouchListener(new View.OnTouchListener(){
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
+            }
+        });
 
         //region Login
         Intent intent = getIntent();
@@ -92,7 +128,7 @@ public class UpActivity extends AppCompatActivity {
         //Kaydet Click
         final ImageButton kayit = (ImageButton)findViewById(R.id.kaydetbut);
 
-        kayit.setOnClickListener(new View.OnClickListener() {
+        kayit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (ka.kayitkontrol()) {
@@ -116,7 +152,7 @@ public class UpActivity extends AppCompatActivity {
 
         //Gönder Buton
         final Button gonder = (Button)findViewById(R.id.gonderbut);
-        gonder.setOnClickListener(new View.OnClickListener() {
+        gonder.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                us.DosyaGonder(getApplicationContext(), loggedUser, kayitkodu);
